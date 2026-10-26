@@ -23,4 +23,4 @@
 **Caveat.** The test has few true leg and body-lock cases (8 / 68 views).
 **Next.** More training views ([E07](../E07-placement-model-v2-cameras/)); new people ([E08](../E08-new-people/)).
 
-Files: `PREREG.md`, `RESULTS.md`. Weights: Hugging Face (engage3D collection).
+Files: `PREREG.md`, `RESULTS.md`. Weights: [`0xdhruva/engage3d-placement-v1`](https://huggingface.co/0xdhruva/engage3d-placement-v1) (private until review).
