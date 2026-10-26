@@ -52,3 +52,6 @@ One line per finding, newest last. Each links to the experiment that supports it
   score. The combined depth doubles the moment-specific agreement over SAM 3D Body alone; the learned placement
   (trained standing) does not carry over to the ground, and MapAnything cannot register ViCoS's tight crops into one
   3D frame. ([E12](experiments/E12-vicos-synced-phones/))
+- Given the true 2D joints as clicks, SAM 3D Body's tangled-limb error falls 15% (held-out pair) to 25% (new people);
+  given today's 2D keypoints (ViTPose+) it rises 19-25%, because inside a tangle the 2D model takes the partner's
+  limbs. ([E18](experiments/E18-oracle-clicks/))
