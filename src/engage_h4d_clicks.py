@@ -12,6 +12,8 @@ Measure as E11: the 19 canonical points aligned rigidly onto the truth over CORE
 for tangle points (within 20 cm of a bone of the other athlete) and the rest.
 
   PYTORCH_ALLOC_CONF=expandable_segments:True ../.venv-s3d/bin/python engage_h4d_clicks.py --feats F --out D [--smoke]
+  ... --pose-file D/pose_ft_<set>.npz --name vitposeft2   (E19: 2 clicks from another 2D model's keypoints, on the
+      views of that file only; the E18 variants are skipped)
 """
 import argparse
 import json
@@ -98,7 +100,15 @@ def main():
     ap.add_argument('--feats', required=True)
     ap.add_argument('--out', required=True)
     ap.add_argument('--smoke', action='store_true', help='a few development views (code check)')
+    ap.add_argument('--pose-file', default='', help='E19: npz with rows, kp [V,2,17,2], score [V,2,17]')
+    ap.add_argument('--name', default='filepose2')
     a = ap.parse_args()
+    global VARIANTS
+    filepose = {}
+    if a.pose_file:
+        z = np.load(a.pose_file, allow_pickle=True)
+        filepose = {tuple(r): np.concatenate([z['kp'][i], z['score'][i][..., None]], -1) for i, r in enumerate(z['rows'])}
+        VARIANTS = [(a.name, 'file', 2)]
     rows, G, tang = crops_from_feats(a.feats)
     if a.smoke:   # development views only: the test views are not looked at before the run
         dev = sorted({r[0] for r in rows if r[0].endswith('_grappling2') and r[0] not in TEST})
@@ -106,6 +116,9 @@ def main():
     else:
         sets = {'heldout': [i for i, r in enumerate(rows) if r[0] in TEST and r[1] in TEST_CAMS],
                 'mma_new_people': [i for i, r in enumerate(rows) if r[0] == MMA]}
+    if filepose:
+        sets = {k: [i for i in v if tuple(rows[i]) in filepose] for k, v in sets.items()}
+        sets = {k: v for k, v in sets.items() if v}
     est = load_estimator()
     m = est.model
     decoder = m.forward_decoder   # the click loop passes full_output=, which forward_decoder no longer takes (E05)
@@ -128,7 +141,10 @@ def main():
             tr = truth_2d(seq, c, f)
             for n, who in enumerate(sorted(b)):
                 box = np.asarray(b[who], np.float32).reshape(1, 4)
-                res = run_crop(m, est, img, box, {'vitpose': vp[n], 'oracle': tr[n]})
+                poses = {'vitpose': vp[n], 'oracle': tr[n]}
+                if filepose:
+                    poses['file'] = filepose[(s, c, f)][n]
+                res = run_crop(m, est, img, box, poses)
                 Gt = torch.tensor(G[v, n][None], dtype=torch.float32)
                 for name, kp in res.items():
                     C = torch.einsum('jk,nkd->njd', A, torch.tensor(kp[None]))
