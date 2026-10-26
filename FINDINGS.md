@@ -44,3 +44,6 @@ One line per finding, newest last. Each links to the experiment that supports it
   predicted points alone (5.90 vs 5.78 cm on tangle limb points). Outside tangles the points-only head halves the limb
   error (5.0 -> 2.9 cm). The remaining error sits in the arms where the bodies touch: the decoder itself has to change.
   ([E10](experiments/E10-limb-head/))
+- Fine-tuning SAM 3D Body's decoder on Harmony4D contact (local pilot, backbone frozen) lowers tangled-limb error 8-9%
+  against the released model, held-out and on new people, but only 2% beyond the cheap points-only head on the
+  held-out pair (5% on new people), and it saturated after one epoch. ([E11](experiments/E11-decoder-finetune/))
