@@ -61,6 +61,9 @@ blended with SAM 3D Body's own estimate of the depth gap between the two people)
 - Published artifacts (models, benchmarks) live on Hugging Face, one repo per experiment, gathered in the engage3D
   collection (links in each experiment's README as they are released).
 
+## Related research
+Earlier threads that led here, each with its own experiments and negative results: [movement-research](https://github.com/dhruvinci/movement-research) (camera and measurement under contact), [limb-entanglement](https://github.com/dhruvinci/limb-entanglement) (whose limb is whose), [fast-slow-vision](https://github.com/dhruvinci/fast-slow-vision), [kakashi-autolabel](https://github.com/dhruvinci/kakashi-autolabel). Index: [dhruvinci/research](https://github.com/dhruvinci/research).
+
 ## Licence
 Code: MIT ([`LICENSE`](LICENSE)). Documents and results: CC BY 4.0. Third-party data and models keep their own
 licences.
