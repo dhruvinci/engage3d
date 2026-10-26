@@ -150,6 +150,33 @@ def train(P, G, X, epochs, seed=0, wd=1e-3, drop=0.2, seeds=3, T=None, ntok=0, u
         if pca is not None:
             X_ = np.concatenate([X_, ((T_ - pca[0]) @ pca[1].T).reshape(len(T_), -1)], 1)
         return fs[0](P_, X_, [f.net_out for f in fs])
+    predict.members, predict.pca = fs, pca
+    return predict
+
+
+def save_model(path, predict, config):
+    """Everything needed to re-create the ensemble: weights, input normalisation, token PCA, settings."""
+    torch.save({'config': config, 'pca': predict.pca,
+                'members': [{'state': f.net.state_dict(), 'mu': f.mu, 'sd': f.sd} for f in predict.members]}, path)
+
+
+def load_model(path):
+    """predict(P [N,2,19,3], X [N,F], T=None) -> corrected P, from a save_model file."""
+    ck = torch.load(path, weights_only=False)
+    nets = []
+    for m in ck['members']:
+        net = Net(len(m['mu']), width=ck['config']['width'], drop=0.0)
+        net.load_state_dict(m['state'])
+        net.eval()
+        nets.append((net, m['mu'], m['sd']))
+
+    def predict(P_, X_, T_=None):
+        if ck['pca'] is not None:
+            X_ = np.concatenate([X_, ((T_ - ck['pca'][0]) @ ck['pca'][1].T).reshape(len(T_), -1)], 1)
+        Z = inputs(P_, X_)
+        with torch.no_grad():
+            o = torch.stack([n(torch.tensor((Z - mu)/sd, dtype=torch.float32)) for n, mu, sd in nets]).mean(0)
+            return apply(torch.tensor(P_, dtype=torch.float32), o).numpy()
     return predict
 
 
@@ -180,7 +207,7 @@ def train_one(P, G, X, epochs, seed, wd, drop, width=256):
         with torch.no_grad():
             o = torch.stack([g(P_, X_) for g in (outs or [net_out])]).mean(0)
             return apply(torch.tensor(P_, dtype=torch.float32), o).numpy()
-    f.net_out = net_out
+    f.net_out, f.net, f.mu, f.sd = net_out, net, mu, sd
     return f
 
 
@@ -243,6 +270,7 @@ def main():
     ap.add_argument('--train-cams', default='')
     ap.add_argument('--eval-cams', default='')
     ap.add_argument('--no-write', action='store_true', help='summary only (no corrected bodies)')
+    ap.add_argument('--save-model', default='', help='with --test: save the trained ensemble here (.pt)')
     ap.add_argument('--drop-overlap', action='store_true', help='ignore the overlap block of --overlap features')
     ap.add_argument('--test-seqs', default='', help='override the held-out test sequences (comma-separated)')
     ap.add_argument('--exclude-seqs', default='', help='sequences used for nothing (comma-separated)')
@@ -272,6 +300,9 @@ def main():
     if a.test:
         tr = ~test & trc
         f = train(*sel(tr), a.epochs, T=tok(tr), **kw)
+        if a.save_model:
+            save_model(a.save_model, f, {**kw, 'epochs': a.epochs, 'n_features': int(D['X'].shape[1]),
+                                         'train_views': int(tr.sum()), 'test_seqs': TEST})
         ev = np.nonzero(test & evc)[0]
         Y[ev] = f(D['P'][ev], D['X'][ev], tok(ev))
     else:

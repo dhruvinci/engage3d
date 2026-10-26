@@ -9,6 +9,14 @@ Every experiment is **pre-registered**: its pass criteria are committed before i
 its results are reported against them, failures included. One folder per experiment: [`experiments/`](experiments/).
 Findings log: [`FINDINGS.md`](FINDINGS.md). Plan: [`docs/RESEARCH_QUEUE.md`](docs/RESEARCH_QUEUE.md).
 
+![What we measure: loops (yellow) and the limbs or torsos threading them (magenta), from ground truth](docs/assets/truth_threading_examples.jpg)
+
+From the camera, a single-camera 3D body model looks right. From above, it puts one athlete 55 cm too far back; the
+combined depth fixes it:
+
+![From the camera](docs/assets/view_a_overlay.png)
+![From above](docs/assets/view_a_topdown.png)
+
 ## Where it stands (October 2026)
 Single-camera pipeline: **SAM 3D Body** (one body per person) -> **combined depth** (a monocular depth map from MoGe-2
 blended with SAM 3D Body's own estimate of the depth gap between the two people) -> **learned placement correction**
