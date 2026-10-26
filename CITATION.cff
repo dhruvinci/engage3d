@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it."
+title: "engage3D: measuring two-person engagement in 3D from a single camera"
+authors:
+  - family-names: Chakravarthi
+    given-names: Dhruva
+year: 2026
+repository-code: "https://github.com/dhruvinci/engage3d"
+license: MIT

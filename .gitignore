@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.npz
+*.npy
+*.pt
+*.ckpt
+benchmarks/
+outputs/
+data/
+.venv*/
