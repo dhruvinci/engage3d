@@ -10,7 +10,7 @@ Writes <out>/{blend,rel}/vicos_s3d.npz (weights --weight and 1.0; same format an
 <out>/views.jsonl.
 
   PYTORCH_ALLOC_CONF=expandable_segments:True ../.venv-depth/bin/python engage_vicos_depth.py IN/vicos_s3d.npz \
-      --out DIR [--weight 0.7]
+      --out DIR [--weight 0.7] [--save-maps]
 """
 import argparse
 import json
@@ -38,6 +38,7 @@ def main():
     ap.add_argument('--out', required=True)
     ap.add_argument('--weight', type=float, default=0.7)
     ap.add_argument('--limit', type=int, default=0)
+    ap.add_argument('--save-maps', action='store_true', help='also keep each depth map and camera (out/maps/<image>.npz)')
     a = ap.parse_args()
     out = Path(a.out)
     z = dict(np.load(a.npz))
@@ -56,6 +57,9 @@ def main():
         f = float(np.hypot(W, H))
         P = np.array([[f, 0, W/2], [0, f, H/2], [0, 0, 1]])
         dm = run(img, f)
+        if a.save_maps:
+            (out/'maps').mkdir(parents=True, exist_ok=True)
+            np.savez_compressed(out/'maps'/f'{z["image"][i]}.npz', depth=dm.astype(np.float16), P=P)
         Vc = [z['verts'][i, n].astype(np.float64) + z['t'][i, n] for n in range(2)]
         own, dep, sil = render([(V, faces) for V in Vc], P, W, H)
         band = max(2, round(5*max(W, H)/768))

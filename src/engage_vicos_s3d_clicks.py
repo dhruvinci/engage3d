@@ -10,6 +10,7 @@ re-run with every click so far, as in training. Limbs and the whole body may cha
 Writes <out>/vicos_s3d.npz in engage_vicos_s3d.py's format, plus clicks [N,2,MAX_NUM_CLICKS] (MHR70 index of each
 click, -1 = none / dummy).
   PYTORCH_ALLOC_CONF=expandable_segments:True ../.venv-s3d/bin/python engage_vicos_s3d_clicks.py --out DIR [--per 80]
+      [--ids FILE]   (E12: a fixed list of image ids instead of the per-class pick)
 """
 import argparse
 import json
@@ -64,9 +65,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--out', required=True)
     ap.add_argument('--per', type=int, default=80)
+    ap.add_argument('--ids', default='', help='a file of image ids (one per line) to run instead of pick() (E12)')
     a = ap.parse_args()
     import torch
-    sel = pick(json.load(open(VICOS/'annotations.json')), a.per)
+    ann = json.load(open(VICOS/'annotations.json'))
+    if a.ids:
+        by = {x['image']: x for x in ann}
+        sel = [by[s.strip()] for s in open(a.ids) if s.strip()]
+    else:
+        sel = pick(ann, a.per)
     print(len(sel), 'frames', flush=True)
     z = zipfile.ZipFile(VICOS/'images.zip')
     est = load_estimator()

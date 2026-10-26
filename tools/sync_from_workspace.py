@@ -40,6 +40,7 @@ EXPERIMENTS = {   # repo folder: {file in the folder: workspace source}
     'E09-athlete-variety': {'PREREG.md': R + 'diversity_prereg.md', 'RESULTS.md': R + 'diversity_results.md'},
     'E10-limb-head': {'PREREG.md': R + 'limbhead_prereg.md', 'RESULTS.md': R + 'limbhead_results.md'},
     'E11-decoder-finetune': {'PREREG.md': R + 's3dft_prereg.md', 'RESULTS.md': R + 's3dft_results.md'},
+    'E12-vicos-synced-phones': {'PREREG.md': R + 'vicos_sync_prereg.md'},
 }
 HARD = [r'[\w.+-]+@[\w-]+\.(com|org|net|ai|io|edu)\b', r'\bhf_[A-Za-z0-9]{20,}', r'\bgh[opsu]_[A-Za-z0-9]{20,}',
         r'\bsk-[A-Za-z0-9]{20,}', r'/home/[a-z]', r'supabase', r'user_id', r'customer']
