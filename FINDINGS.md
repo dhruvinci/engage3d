@@ -47,3 +47,8 @@ One line per finding, newest last. Each links to the experiment that supports it
 - Fine-tuning SAM 3D Body's decoder on Harmony4D contact (local pilot, backbone frozen) lowers tangled-limb error 8-9%
   against the released model, held-out and on new people, but only 2% beyond the cheap points-only head on the
   held-out pair (5% on new people), and it saturated after one epoch. ([E11](experiments/E11-decoder-finetune/))
+
+- On ViCoS ground work, two phones filming the same moment agree on the measured relations about twice as much as the
+  position label alone explains (combined depth: 0.28 vs 0.14), so cross-phone agreement is a truth-free reliability
+  score. The combined depth doubles the moment-specific agreement over SAM 3D Body alone; the learned placement
+  (trained standing) does not carry over to the ground. ([E12](experiments/E12-vicos-synced-phones/))
