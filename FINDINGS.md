@@ -50,4 +50,5 @@ One line per finding, newest last. Each links to the experiment that supports it
 - On ViCoS ground work, two phones filming the same moment agree on the measured relations about twice as much as the
   position label alone explains (combined depth: 0.28 vs 0.14), so cross-phone agreement is a truth-free reliability
   score. The combined depth doubles the moment-specific agreement over SAM 3D Body alone; the learned placement
-  (trained standing) does not carry over to the ground. ([E12](experiments/E12-vicos-synced-phones/))
+  (trained standing) does not carry over to the ground, and MapAnything cannot register ViCoS's tight crops into one
+  3D frame. ([E12](experiments/E12-vicos-synced-phones/))

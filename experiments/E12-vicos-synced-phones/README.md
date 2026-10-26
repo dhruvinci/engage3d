@@ -21,9 +21,9 @@ work, and can MapAnything turn the phones into usable 3D?
 
 **Verdict.** **A1 pass** (single-phone relations carry information about the moment); **A2**: the combined depth is the
 more reliable pipeline; **B1 fail** (the learned placement, trained standing, improves only half guard on the ground);
-**C1 pending** (MapAnything's environment needs a manual install).
+**C1 fail**: MapAnything runs on 6 GB, but cannot place the phone crops in one shared 3D frame (each athlete lands 1.2 m apart across phones).
 **Learned.** Cross-phone agreement works as a truth-free reliability score. The learned placement pulls bodies towards
 typical configurations rather than towards the moment, so ground work needs its own training data.
-**Next.** Part C (MapAnything pseudo-3D) once installed; ground-work 3D truth (capture).
+**Next.** Ground-work 3D truth needs uncropped synchronised video or a calibrated capture (`docs/CAPTURE_DESIGN.v0.md`).
 
 Files: `PREREG.md` (committed before the run), `RESULTS.md`. Code: `src/engage_vicos_sync.py`.

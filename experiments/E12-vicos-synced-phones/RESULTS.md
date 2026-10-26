@@ -1,4 +1,4 @@
-# E12 results: synchronised phones agree beyond the label; the combined depth is the more reliable pipeline; the learned placement does not carry over (pre-registration: `vicos_sync_prereg.md`)
+# E12 results: synchronised phones agree beyond the label; the combined depth is the more reliable pipeline; the learned placement does not carry over; MapAnything cannot register the phone crops (pre-registration: `vicos_sync_prereg.md`)
 
 Run 2026-10-26 20:24-21:48, after E11 had finished and after the pre-registration was pushed (engage3d `23788ed`).
 Code: `scripts/engage_vicos_sync.py`, `engage_vicos_s3d_clicks.py --ids`, `engage_vicos_depth.py --save-maps`,
@@ -11,7 +11,7 @@ Code: `scripts/engage_vicos_sync.py`, `engage_vicos_s3d_clicks.py --ids`, `engag
 | A1 | `blend`: same moment vs another moment with the same label (identity-free Dice) | 0.275 vs 0.142: +0.132 (95% interval +0.091 to +0.175) | **pass** |
 | A2 | same-moment agreement: `blend` vs `clicks` | 0.275 vs 0.159 (+0.116) | **the combined depth is the more reliable pipeline** |
 | B1 | `place` vs `blend`, defining relations | mount 0.33 -> 0.35, closed guard 0.40 -> 0.40, half guard 0.22 -> 0.28: up by >= 0.05 in 1 of 3 (needed 2); none down; controls <= 0.20 (standing 0.00, takedown 0.17, turtle 0.16, side control 0.08); same-moment agreement 0.282 vs 0.275 | **fail** |
-| C1 | MapAnything feasibility | not run yet: installing its environment needs Dhruva (the auto-mode check blocked the package install) | pending |
+| C1 | MapAnything feasibility (60 three-phone moments) | runs on the 6 GB GPU (peak 5.6 GB, 2.2 s per moment); coherent in 10% of moments (needed 60%): the distance between the athletes agrees across phones within 15 cm in 42%, but each athlete's 3D centre lands 1.18 m apart across phones (median) | **fail** |
 
 ## Agreement in full
 | pipeline | same moment | baseline (same label) | difference [95%] | identity-aware difference [95%] | phone pairs |
@@ -35,3 +35,17 @@ Phone pairs with no relation in either image (not in the Dice): 376 / 263 / 277.
   E05: 0.29, 0.33, 0.64).
 - Caveat: the agreement says the measurements are consistent across viewpoints, not that they are right; a shared
   bias (both phones wrong the same way) also agrees.
+
+## Part C: MapAnything (run 2026-10-26 after Dhruva installed its environment; `scripts/engage_vicos_mapany.py`,
+`facebook/map-anything-apache`; output `benchmarks/engage_vicos/sync/mapany.json`)
+| | share within the bound | median | 25th-75th percentile |
+|---|---|---|---|
+| distance between the athletes, spread across the 3 phones (< 15 cm) | 42% | 17 cm | 11-32 cm |
+| each athlete's 3D centre, spread across the 3 phones (< 25 cm) | 10% | 1.18 m | 0.51-2.52 m |
+Per session, coherent moments: 0% / 20% / 10%. Each phone's own distance between the athletes (median 0.33 m)
+correlates with the combined depth's (Spearman 0.50).
+
+**Reading.** Each phone's depth is roughly consistent on its own, but MapAnything does not place the three phones in
+one shared frame: ViCoS's images are tight crops around the athletes, with little of the static gym that registration
+needs. Pseudo-3D truth for ground work will not come from these crops. It would need the uncropped videos, or a
+capture with calibrated cameras (`CAPTURE_DESIGN.v0.md`).
