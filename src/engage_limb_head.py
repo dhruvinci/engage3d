@@ -18,6 +18,8 @@ Splits: development = grappling2 sequences other than the held-out four (all cam
 
   ../.venv-depth/bin/python engage_limb_head.py --feats DIR --out DIR --cv        # 4-fold CV by sequence, development
   ../.venv-depth/bin/python engage_limb_head.py --feats DIR --out DIR --test      # train on development, score tests
+  --align core14 --measure joint8: E11's measure (align over the 14 points SMPL and MHR define alike; score elbows,
+  wrists, knees, ankles), for the E11 baseline "original + points-only head".
 """
 import argparse
 import glob
@@ -42,6 +44,11 @@ SEGS = [(CANON.index(a), CANON.index(b)) for _, a, b in BONES]
 TANGLE_M = 0.20
 K_TOK, WIDTH, EPOCHS, SEEDS, DROP, WD, LR, BATCH = 64, 512, 60, 3, 0.2, 1e-3, 1e-3, 512
 VARIANTS = ['none', 'ponly', 'token', 'shuffled']
+ALIGN = None          # indices for the rigid alignment (None: all 19); --align core14 sets E11's 14 points
+CORE14 = [CANON.index(n) for n in ('pelvis', 'neck', 'l_hip', 'r_hip', 'l_knee', 'r_knee', 'l_ankle', 'r_ankle',
+                                   'l_shoulder', 'r_shoulder', 'l_elbow', 'r_elbow', 'l_wrist', 'r_wrist')]
+JOINT8 = np.array([n in ('l_knee', 'r_knee', 'l_ankle', 'r_ankle', 'l_elbow', 'r_elbow', 'l_wrist', 'r_wrist')
+                   for n in CANON])
 
 
 def load(feats):
@@ -60,8 +67,9 @@ def load(feats):
 
 def kabsch(A, B):
     """A rigidly aligned onto B (rotation + translation, no scale), batched over the leading axis: [N,J,3]."""
-    a, b = A.mean(1, keepdims=True), B.mean(1, keepdims=True)
-    U, _, Vt = np.linalg.svd(np.swapaxes(A - a, 1, 2) @ (B - b))
+    idx = ALIGN if ALIGN is not None else slice(None)
+    a, b = A[:, idx].mean(1, keepdims=True), B[:, idx].mean(1, keepdims=True)
+    U, _, Vt = np.linalg.svd(np.swapaxes(A[:, idx] - a, 1, 2) @ (B[:, idx] - b))
     d = np.sign(np.linalg.det(np.swapaxes(Vt, 1, 2) @ np.swapaxes(U, 1, 2)))
     D = np.zeros((len(A), 3, 3)); D[:, 0, 0] = 1; D[:, 1, 1] = 1; D[:, 2, 2] = d
     R = np.swapaxes(Vt, 1, 2) @ D @ np.swapaxes(U, 1, 2)
@@ -199,7 +207,14 @@ def main():
     g.add_argument('--cv', action='store_true')
     g.add_argument('--test', action='store_true')
     ap.add_argument('--smoke', action='store_true', help='development CV on a few views with 2 epochs (code check)')
+    ap.add_argument('--align', choices=['all', 'core14'], default='all')
+    ap.add_argument('--measure', choices=['limb12', 'joint8'], default='limb12')
     a = ap.parse_args()
+    global ALIGN, LIMB
+    if a.align == 'core14':
+        ALIGN = CORE14
+    if a.measure == 'joint8':
+        LIMB = JOINT8
     D, meta = load(a.feats)
     if a.smoke:
         global EPOCHS
