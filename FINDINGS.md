@@ -40,3 +40,7 @@ One line per finding, newest last. Each links to the experiment that supports it
   thresholds. On a third pair variety and quantity are equal: two pairs are too few to measure variety. The
   correction is near the limit of a whole-body move; what remains is limb error inside tangles.
   ([E09](experiments/E09-athlete-variety/))
+- SAM 3D Body's own final pose token cannot fix limbs inside tangles: a head reading it does no better than one on the
+  predicted points alone (5.90 vs 5.78 cm on tangle limb points). Outside tangles the points-only head halves the limb
+  error (5.0 -> 2.9 cm). The remaining error sits in the arms where the bodies touch: the decoder itself has to change.
+  ([E10](experiments/E10-limb-head/))
