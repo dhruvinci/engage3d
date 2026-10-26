@@ -38,6 +38,7 @@ EXPERIMENTS = {   # repo folder: {file in the folder: workspace source}
     'E07-placement-model-v2-cameras': {'PREREG.md': R + 'placemodel_v2_prereg.md', 'RESULTS.md': R + 'placemodel_v2_results.md'},
     'E08-new-people': {'PREREG.md': R + 'newpeople_prereg.md', 'RESULTS.md': R + 'newpeople_results.md'},
     'E09-athlete-variety': {'PREREG.md': R + 'diversity_prereg.md', 'RESULTS.md': R + 'diversity_results.md'},
+    'E10-limb-head': {'PREREG.md': R + 'limbhead_prereg.md'},
 }
 HARD = [r'[\w.+-]+@[\w-]+\.(com|org|net|ai|io|edu)\b', r'\bhf_[A-Za-z0-9]{20,}', r'\bgh[opsu]_[A-Za-z0-9]{20,}',
         r'\bsk-[A-Za-z0-9]{20,}', r'/home/[a-z]', r'supabase', r'user_id', r'customer']
