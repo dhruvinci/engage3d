@@ -82,7 +82,7 @@ Disk: 423 GB; floor 30 GB free. **Now 43 GB free** (13 GB usable).
 | Step | What | Frees | Status |
 |---|---|---|---|
 | A | My engagement intermediates whose results are written up: token re-run copy (tokens already inside the features), depth-test variant meshes, test-run mesh copies, ViCoS variant meshes (scores, records, maps kept) | ~6 GB | ready; consumers checked |
-| B | Archive to **private** Hugging Face, verify checksums, then delete locally: Laya Vision caches (25 GB), Qwen VL-SEG phase 1 (12 GB), Kakashi viz runs (17 GB) | ~54 GB | needs Dhruva's OK |
+| B | Archive to **private** Hugging Face, verify checksums, then delete locally: Laya Vision caches (25 GB), Qwen VL-SEG phase 1 (12 GB), Kakashi viz runs (17 GB) | ~54 GB | **done 2026-10-26** (97 GB free after) |
 | C | `dataset/media` is 85 GB, over its 70 GB cap | — | Dhruva's decision (never auto-deleted) |
 After A+B: about 100 GB free, enough for E10-E16 and a Hi4D/CHI3D subset.
 Compute: one GPU job at a time; CPU jobs capped (`TORCH_THREADS`, at most one training next to a GPU job).
