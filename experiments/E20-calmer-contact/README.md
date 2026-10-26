@@ -7,4 +7,4 @@ engagement with calmer contact (an embrace, a dance hold). Does the same pipelin
 pipeline (SAM 3D Body, combined depth, placement learned on grappling only). Criteria fixed in advance:
 [`PREREG.md`](PREREG.md).
 
-**Status.** Pre-registered 2026-10-27; results follow in `RESULTS.md`.
+**Status.** Pre-registered 2026-10-26; results follow in `RESULTS.md`.
