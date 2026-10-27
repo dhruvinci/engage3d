@@ -65,3 +65,8 @@ One line per finding, newest last. Each links to the experiment that supports it
 - Engagement at range (sword fighting, 2.4 m apart): the distance between the two people is right to about 4% (8.4 cm),
   the same relative accuracy as in close contact, but the pre-registered absolute bars fail; the placement learned on
   grappling hurts depth at range. ([E21](experiments/E21-engagement-at-range/))
+- The pipeline can flag its own bad frames without any truth: a trust flag built mostly on the placement ensemble's
+  disagreement ranks a bad frame above a good one 4 times in 5 (AUROC 0.795 held-out grappling, 0.76 new people, 0.77-0.80
+  ballroom and hugging; limbs 0.79). Trusting half the frames cuts the distance error by 28% on the held-out pair (bar:
+  30%) and 39-51% where errors are larger (MMA, hugging); at range it does not work (0.58).
+  ([E17](experiments/E17-confidence/))
