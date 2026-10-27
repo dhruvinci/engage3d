@@ -42,7 +42,7 @@ long a gap time alone can bridge (the masked-gap protocol, also a yardstick for 
 
 Compute: CPU only, about 1.5-2.5 hours, after E17 finishes (never alongside another training).
 
-## Amendment (2026-10-27, 13:40, before any run on the test views)
+## Amendment (2026-10-27, 12:55, before any run on the test views)
 A code review before the run found that the masked-gap test, as written above, could not measure what T3 asks. These
 fixes come only from reading the design and a smoke run on one development sequence; no test view has been scored.
 1. **The masked head never sees the frame it predicts.** As written, its correction was added to the hidden frame's
