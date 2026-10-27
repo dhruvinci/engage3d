@@ -8,9 +8,11 @@ own frame stays fixed over time), plus ViTPose+ confidence of the 17 keypoints a
 outputs a correction of the athlete's centre-frame pose; the target is the truth aligned rigidly onto the prediction
 over CORE14 (as E11: pose, not placement). Window 1 is the per-frame head (E10's points-only head on E11's measure).
 
-Masked-gap protocol: the window-15 head is also trained with random masking of the centre frame and up to 7 frames
-around it (inputs zeroed, present flag off); at test the centre +-g frames are hidden (g = 0, 1, 3, 7: up to about
-1 s) to measure how far time alone carries the limbs.
+Masked-gap protocol (amended before any test run; see the pre-registration): a 31-frame head that never sees the
+centre frame. The centre and up to 7 frames either side are hidden at random in training (inputs zeroed, present
+flag off); at test the centre +-g frames are hidden (g = 0, 1, 3, 7: up to about 1 s), so at the longest gap 8 frames
+stay visible on each side. It starts from the mean pose of the nearest visible frame on each side and learns a
+correction to it; that plain interpolation is reported too. This measures how far time alone carries the limbs.
 
   TORCH_THREADS=8 ../.venv-depth/bin/python engage_temporal.py --feats DIR --out DIR [--smoke]
 """
@@ -36,6 +38,7 @@ HELD = ['031_grappling2', '037_grappling2', '042_grappling2', '043_grappling2']
 CAMS4 = {'cam01', 'cam06', 'cam11', 'cam16'}
 WINDOWS = [1, 5, 15, 31]
 GAPS = [0, 1, 3, 7]
+MASK_K = 15                     # the masked head reads +-15 frames, so a +-7 gap leaves 8 visible on each side
 WIDTH, EPOCHS, SEEDS, DROP, WD, LR, BATCH, SEED = 512, 40, 2, 0.2, 1e-3, 1e-3, 512, 0
 import engage_limb_head as L   # noqa: E402
 L.ALIGN = CORE14               # targets and errors aligned over the 14 points both body models define alike
@@ -77,10 +80,12 @@ def windows_for(key, tracks, k):
     return idx
 
 
-def inputs(P, C, idx, n, mask=None):
-    """Per athlete n: [V, (2k+1) * (57 + 57 + 17 + 1)] window features, centred on the centre frame's own centroid."""
+def inputs(P, C, idx, n, mask=None, c0=None):
+    """Per athlete n: [V, (2k+1) * (57 + 57 + 17 + 1)] window features, centred on c0 (default: the centre frame's
+    own centroid)."""
     V, W = idx.shape
-    c0 = P[:, n].mean(1)                                   # [V,3]
+    if c0 is None:
+        c0 = P[:, n].mean(1)                               # [V,3]
     feats = []
     for o in range(W):
         j = idx[:, o]
@@ -97,6 +102,36 @@ def target(P, G, n):
     return (kabsch(G[:, n], P[:, n]) - P[:, n]).reshape(len(P), -1)
 
 
+def nearest_visible(P, idx, ok, n):
+    """[V,19,3] mean pose (camera frame) of the nearest visible frame on each side of the centre, and [V] how many
+    sides had one."""
+    V, W = idx.shape
+    k = W // 2
+    base, cnt = np.zeros((V, 19, 3)), np.zeros(V)
+    for side in (range(k - 1, -1, -1), range(k + 1, W)):
+        found = np.zeros(V, bool)
+        for o in side:
+            take = ok[:, o] & ~found
+            base[take] += P[idx[take, o], n]
+            cnt[take] += 1
+            found |= take
+    return base / np.maximum(cnt, 1)[:, None, None], cnt
+
+
+def masked_set(P, G, C, idx, msk):
+    """Inputs (both athletes stacked), targets (None without truth), interpolated bases [2][V,19,3] and side counts
+    for the masked head: centred on the base's centroid, target = truth aligned onto the base, minus the base."""
+    X, T, B, cnt = [], [], [], []
+    ok = (idx >= 0) & ~msk
+    for n in range(2):
+        base, c = nearest_visible(P, idx, ok, n)
+        X.append(inputs(P, C, idx, n, msk, c0=base.mean(1)))
+        if G is not None:
+            T.append((kabsch(G[:, n], base) - base).reshape(len(P), -1))
+        B.append(base); cnt.append(c)
+    return np.concatenate(X), (np.concatenate(T) if G is not None else None), B, np.minimum(*cnt)
+
+
 class Head(nn.Module):
     def __init__(self, d_in):
         super().__init__()
@@ -109,19 +144,20 @@ class Head(nn.Module):
         return self.f(x)
 
 
-def train_head(X, T, seed, epochs, mask_fn=None, Xbuild=None):
-    """X: [N,D] (or rebuilt each epoch by Xbuild(mask) for masked training); T: [N,57]."""
+def train_head(build, seed, epochs, mask_fn=None):
+    """build(mask) -> (X [N,D], T [N,57]); with mask_fn, a new random mask (inputs and targets rebuilt) each epoch."""
     torch.manual_seed(seed)
     rng = np.random.default_rng(seed)
-    X0 = X if Xbuild is None else Xbuild(None)
-    mu, sd = X0.mean(0), X0.std(0) + 1e-6
-    net = Head(X0.shape[1])
+    X, T = build(mask_fn(rng) if mask_fn else None)
+    mu, sd = X.mean(0), X.std(0) + 1e-6
+    net = Head(X.shape[1])
     opt = torch.optim.AdamW(net.parameters(), lr=LR, weight_decay=WD)
     sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, epochs)
-    Tt = torch.tensor(T, dtype=torch.float32)
     for ep in range(epochs):
-        Xe = X0 if Xbuild is None else Xbuild(mask_fn(rng))
-        Xt = torch.tensor((Xe - mu) / sd, dtype=torch.float32)
+        if mask_fn and ep:
+            X, T = build(mask_fn(rng))
+        Xt = torch.tensor((X - mu) / sd, dtype=torch.float32)
+        Tt = torch.tensor(T, dtype=torch.float32)
         net.train()
         for b in torch.randperm(len(Xt)).split(BATCH):
             loss = torch.linalg.norm((net(Xt[b]) - Tt[b]).view(-1, 19, 3), dim=-1).mean()
@@ -178,40 +214,43 @@ def main():
     rep = {'settings': dict(WIDTH=WIDTH, EPOCHS=epochs, SEEDS=SEEDS, WINDOWS=WINDOWS, GAPS=GAPS), 'dev_views': int(len(Pd))}
     Ttr = np.concatenate([target(Pd, Gd, n) for n in range(2)])
     E = {name: {} for name in tests}
+    sides3 = {}
     for k in [w // 2 for w in WINDOWS]:
         idx = windows_for(kd, td, k)
         Xtr = np.concatenate([inputs(Pd, Cd, idx, n) for n in range(2)])
-        heads = [train_head(Xtr, Ttr, SEED + s, epochs) for s in range(SEEDS)]
+        heads = [train_head(lambda _: (Xtr, Ttr), SEED + s, epochs) for s in range(SEEDS)]
         for name, (P, G, C, key, tr) in tests.items():
             ti = windows_for(key, tr, k)
             corr = np.stack([np.mean([h(inputs(P, C, ti, n)) for h in heads], 0).reshape(-1, 19, 3) for n in range(2)], 1)
             E[name][f'w{2 * k + 1}'] = errors(P, G, corr)
         print(f'window {2 * k + 1} done', flush=True)
-    # masked-gap: window 15, trained with random hiding of the centre and up to 7 frames around it
-    k = 7
+    # masked gap: 31 frames, the centre and 0-7 frames either side hidden at random (a new mask each epoch)
+    k = MASK_K
     idx = windows_for(kd, td, k)
-    V = len(Pd)
-
-    def mask_fn(rng):
-        g = rng.integers(0, 8, V)
-        offs = np.arange(-k, k + 1)[None]
-        return np.abs(offs) <= g[:, None]
-    build = lambda msk: np.concatenate([inputs(Pd, Cd, idx, n, msk) for n in range(2)])
-    heads = [train_head(None, Ttr, SEED + 10 + s, epochs, mask_fn=mask_fn, Xbuild=build) for s in range(SEEDS)]
+    offs = np.abs(np.arange(-k, k + 1))[None]
+    mask_fn = lambda rng: offs <= rng.integers(0, max(GAPS) + 1, len(Pd))[:, None]
+    heads = [train_head(lambda msk: masked_set(Pd, Gd, Cd, idx, msk)[:2], SEED + 10 + s, epochs, mask_fn=mask_fn)
+             for s in range(SEEDS)]
     for name, (P, G, C, key, tr) in tests.items():
         ti = windows_for(key, tr, k)
         for g in GAPS:
-            msk = np.abs(np.arange(-k, k + 1))[None].repeat(len(P), 0) <= g if g > 0 else np.zeros((len(P), 2 * k + 1), bool)
-            if g == 0:
-                msk[:] = False
-            corr = np.stack([np.mean([h(inputs(P, C, ti, n, msk)) for h in heads], 0).reshape(-1, 19, 3) for n in range(2)], 1)
-            E[name][f'masked_gap{g}'] = errors(P, G, corr)
+            X, _, B, sides = masked_set(P, None, C, ti, offs.repeat(len(P), 0) <= g)
+            corr = np.mean([h(X) for h in heads], 0).reshape(2, len(P), 19, 3).transpose(1, 0, 2, 3)
+            E[name][f'masked_gap{g}'] = errors(np.stack(B, 1), G, corr)
+            E[name][f'interp_gap{g}'] = errors(np.stack(B, 1), G, np.zeros_like(corr))
+            print(f'{name} gap {g}: {int((sides < 2).sum())} of {len(P)} views lack a visible frame on one side', flush=True)
+            if g == 3:
+                sides3[name] = sides == 2
         E[name]['none'] = errors(P, G, np.zeros_like(P))
     for name, (P, G, C, key, tr) in tests.items():
         tang = tangle_mask(G)
         r = {v: summarise(e, tang) for v, e in E[name].items()}
         r['w15_vs_w1_tangle_95ci'] = boot(E[name]['w15'], E[name]['w1'], tang)
         r['masked_gap3_vs_w1_tangle_95ci'] = boot(E[name]['masked_gap3'], E[name]['w1'], tang)
+        b = sides3[name]   # T3: views with a visible frame on both sides of the +-3 gap (not a sequence edge)
+        r['T3_both_sides_views'] = int(b.sum())
+        r['T3_both_sides'] = {v: summarise(E[name][v][b], tang[b]) for v in ('w1', 'masked_gap3', 'interp_gap3', 'none')}
+        r['T3_both_sides_masked_gap3_vs_w1_tangle_95ci'] = boot(E[name]['masked_gap3'][b], E[name]['w1'][b], tang[b])
         rep[name] = r
         print(name, json.dumps(r), flush=True)
     json.dump(rep, open(out/'temporal.json', 'w'), indent=1)

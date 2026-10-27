@@ -41,3 +41,19 @@ long a gap time alone can bridge (the masked-gap protocol, also a yardstick for 
 - **T3** says how long a contact can hide a limb before time stops helping.
 
 Compute: CPU only, about 1.5-2.5 hours, after E17 finishes (never alongside another training).
+
+## Amendment (2026-10-27, 13:40, before any run on the test views)
+A code review before the run found that the masked-gap test, as written above, could not measure what T3 asks. These
+fixes come only from reading the design and a smoke run on one development sequence; no test view has been scored.
+1. **The masked head never sees the frame it predicts.** As written, its correction was added to the hidden frame's
+   own per-frame prediction, so it was not "time alone". It now starts from the mean pose of the nearest visible frame
+   on each side and learns a correction to that. The plain interpolation (no learning) is reported too.
+2. **31 frames, not 15.** A 15-frame window (+-7) hiding +-7 frames leaves nothing visible, so the masked head reads 31
+   frames (+-15). At the longest gap, 8 frames stay visible on each side.
+3. **g = 0 hides the centre frame only**, as in training ("the centre +-g frames are hidden").
+4. **T3 is scored on views with a visible frame on both sides of the +-3 gap.** Held-out grappling sequences are short
+   (24-163 frames per camera at 15 per second), so near a sequence's ends one side is missing and the test becomes
+   extrapolation. All views are reported as secondary.
+
+T3 now reads: held-out, views with both sides visible, the masked 31-frame head with the centre +-3 frames hidden
+(7 frames, about 0.5 s) vs window 1 on the same views: at most 10% higher. Thresholds and T1, T2 and T4 are unchanged.
