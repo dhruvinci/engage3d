@@ -35,6 +35,10 @@ blended with SAM 3D Body's own estimate of the depth gap between the two people)
 - **Ground work** (no 3D truth): the combined depth raises the defining relations of mount (0.14 -> 0.29), closed
   guard (0.20 -> 0.33) and back control (0.39 -> 0.64) without false positives in control positions
   ([E05](experiments/E05-vicos-combined-depth/)).
+- **Beyond grappling:** ballroom dancing is measured well (the two dancers' distance within 2.7 cm, touching F1
+  0.96, limbs in contact 3.8 cm), hugging less so (arms hidden behind the partner), and at range (sword fighting,
+  2.4 m apart) the distance is right to about 4% ([E20](experiments/E20-calmer-contact/),
+  [E21](experiments/E21-engagement-at-range/)).
 - **Limits:**
   - ground-truth person boxes were used;
   - all Harmony4D grappling is two pairs of athletes, too few to measure how athlete variety helps

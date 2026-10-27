@@ -26,7 +26,7 @@ committed before it runs, and published with its results.
 | E18 | **True 2D clicks into SAM 3D Body** (done 2026-10-27: -15% held-out / -25% new people; today's 2D clicks +19-25% worse) | | | | | |
 | E19 | **ViTPose+ fine-tuned on contact** (done: 2D -21%, clicks still hurt +14%) | | | | | |
 | E20 | **Calmer contact: hugging, ballroom** (done: ballroom works, hugging hides limbs) | | | | | |
-| E21 | **Engagement at range: sword fighting** (running 2026-10-27) | | | | | |
+| E21 | **Engagement at range: sword fighting** (done 2026-10-27: distance right to ~4% at 2.4 m; absolute bars fail; placement hurts depth at range) | | | | | |
 | L1 | **Full-library auto-label (v1.1)** (last; Dhruva 2026-10-26) | Label every downloaded video at a sparse density so the library has a complete index before the videos are deleted | the 940 downloaded YouTube videos | GPU ~35-50 h (no 12.5 fps masks) + ~1 week of Astra | labels ~1-2 GB | private dataset v1.1 (HF) |
 
 Not schedulable yet:
