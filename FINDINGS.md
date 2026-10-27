@@ -74,3 +74,6 @@ One line per finding, newest last. Each links to the experiment that supports it
   4.81 cm in tangles), because SAM 3D Body's errors on a hidden limb persist across neighbouring frames. Hiding frames
   shows time alone bridges about one frame (0.07 s); at 0.5 s the error doubles. The per-frame head itself is the best
   limb correction so far (5.39 -> 4.81 cm, exploratory). ([E14](experiments/E14-temporal-limbs/))
+- **Caveat (found 2026-10-27):** SAM 3D Body was trained on Harmony4D (all 24 subjects, arXiv 2602.15989), so its
+  absolute numbers on Harmony4D in E10-E21, including the MMA "new people", are likely optimistic. Comparisons within
+  each experiment (corrections, prompts, fits against the same model on the same views) are unaffected.

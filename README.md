@@ -58,6 +58,9 @@ blended with SAM 3D Body's own estimate of the depth gap between the two people)
   [E21](experiments/E21-engagement-at-range/)).
 - **Limits:**
   - ground-truth person boxes were used;
+  - SAM 3D Body was trained on Harmony4D (all 24 subjects; [arXiv 2602.15989](https://arxiv.org/abs/2602.15989), Table 1),
+    so its absolute errors on Harmony4D, including the MMA "new people", are likely optimistic; comparisons within an
+    experiment are unaffected, and unseen data (MAMMA's motion-capture evaluation, real footage) is the honest test;
   - all Harmony4D grappling is two pairs of athletes, too few to measure how athlete variety helps
     ([E09](experiments/E09-athlete-variety/));
   - leg entanglements and loop balance are not yet reliable, and what remains is limb error inside tangles.
