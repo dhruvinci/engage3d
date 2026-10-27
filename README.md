@@ -9,6 +9,23 @@ Every experiment is **pre-registered**: its pass criteria are committed before i
 its results are reported against them, failures included. One folder per experiment: [`experiments/`](experiments/).
 Findings log: [`FINDINGS.md`](FINDINGS.md). Plan: [`docs/RESEARCH_QUEUE.md`](docs/RESEARCH_QUEUE.md).
 
+## Where it works, and where it doesn't yet
+One camera against the 3D truth, on Harmony4D sequences never used for training. Each clip is a typical stretch,
+chosen by rule (the window whose median error matches the activity's overall result), not the best-looking one.
+
+![Ballroom dancing: measured from one camera vs the truth](docs/assets/demo_ballroom.gif)
+
+**Ballroom dancing: works.** The two dancers' distance is right to 2.7 cm (median), whether they touch to F1 0.96, and
+limbs in contact to 3.8 cm ([E20](experiments/E20-calmer-contact/)).
+
+![Grappling with limbs tangled: measured from one camera vs the truth; red lines join measured limb joints to the truth](docs/assets/demo_grappling.gif)
+
+**Grappling with limbs tangled: not yet.** Where the two bodies are is right (distance 3.2 cm), but limbs hidden at the
+contact are 4-6 cm off (red lines: measured joint -> true joint). Hugging fails the same way: the arms hide behind the
+partner. **This is where the work is now:** better 2D inside tangles ([E18](experiments/E18-oracle-clicks/),
+[E19](experiments/E19-contact-2d-keypoints/)), the body model's decoder ([E11](experiments/E11-decoder-finetune/)),
+information over time (E14) and a stronger keypoint model (E16).
+
 ![What we measure: loops (yellow) and the limbs or torsos threading them (magenta), from ground truth](docs/assets/truth_threading_examples.jpg)
 
 From the camera, a single-camera 3D body model looks right. From above, it puts one athlete 55 cm too far back; the
