@@ -70,3 +70,7 @@ One line per finding, newest last. Each links to the experiment that supports it
   ballroom and hugging; limbs 0.79). Trusting half the frames cuts the distance error by 28% on the held-out pair (bar:
   30%) and 39-51% where errors are larger (MMA, hugging); at range it does not work (0.58).
   ([E17](experiments/E17-confidence/))
+- Time does not fill in hidden limbs: a head reading 5-31 frames is no better than one reading a single frame (4.81 vs
+  4.81 cm in tangles), because SAM 3D Body's errors on a hidden limb persist across neighbouring frames. Hiding frames
+  shows time alone bridges about one frame (0.07 s); at 0.5 s the error doubles. The per-frame head itself is the best
+  limb correction so far (5.39 -> 4.81 cm, exploratory). ([E14](experiments/E14-temporal-limbs/))

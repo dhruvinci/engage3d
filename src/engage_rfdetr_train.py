@@ -21,13 +21,15 @@ TASKS = {
 }
 
 
-def build(task, res=None, checkpointing=True):
+def build(task, res=None, checkpointing=True, queries=None):
     import rfdetr
     cls, weights = TASKS[task]
     WEIGHTS.mkdir(parents=True, exist_ok=True)
     kw = dict(pretrain_weights=str(WEIGHTS/weights), gradient_checkpointing=checkpointing)
     if res:
         kw['resolution'] = res
+    if queries:
+        kw.update(num_queries=queries, num_select=queries)
     return getattr(rfdetr, cls)(**kw)
 
 
@@ -41,10 +43,11 @@ def main():
     ap.add_argument('--accum', type=int, default=8)
     ap.add_argument('--res', type=int, default=None)
     ap.add_argument('--lr', type=float, default=1e-4)
+    ap.add_argument('--queries', type=int, default=None, help='person queries (pretrained: 100 keypoints, 200 seg)')
     ap.add_argument('--fixed-scale', action='store_true', help='train at the model resolution only (no multi-scale)')
     a = ap.parse_args()
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
-    model = build(a.task, a.res, checkpointing=not os.environ.get('RFDETR_NO_CKPT'))
+    model = build(a.task, a.res, checkpointing=not os.environ.get('RFDETR_NO_CKPT'), queries=a.queries)
     t0 = time.time()
     model.train(dataset_dir=a.data, output_dir=str(out), epochs=a.epochs, batch_size=a.batch,
                 grad_accum_steps=a.accum, lr=a.lr, num_workers=4, tensorboard=False, progress_bar=os.environ.get('RFDETR_BAR'),
