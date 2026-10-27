@@ -23,6 +23,10 @@ committed before it runs, and published with its results.
 | E16 | **End-to-end with real detection** | All tests so far used ground-truth boxes. With tracked boxes (SAM 3.1), how much worse is it? The honest real-world number | Harmony4D | GPU ~4-6 h | +3 GB | report |
 | E17 | Confidence per frame (optional, low priority) | Can the model say when it is wrong (ensemble spread vs error)? | existing | CPU ~1 h | — | report |
 
+| E18 | **True 2D clicks into SAM 3D Body** (done 2026-10-27: -15% held-out / -25% new people; today's 2D clicks +19-25% worse) | | | | | |
+| E19 | **ViTPose+ fine-tuned on contact** (done: 2D -21%, clicks still hurt +14%) | | | | | |
+| E20 | **Calmer contact: hugging, ballroom** (done: ballroom works, hugging hides limbs) | | | | | |
+| E21 | **Engagement at range: sword fighting** (running 2026-10-27) | | | | | |
 | L1 | **Full-library auto-label (v1.1)** (last; Dhruva 2026-10-26) | Label every downloaded video at a sparse density so the library has a complete index before the videos are deleted | the 940 downloaded YouTube videos | GPU ~35-50 h (no 12.5 fps masks) + ~1 week of Astra | labels ~1-2 GB | private dataset v1.1 (HF) |
 
 Not schedulable yet:

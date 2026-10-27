@@ -62,3 +62,6 @@ One line per finding, newest last. Each links to the experiment that supports it
   touching F1 0.96, limbs in contact 3.8 cm), but hugging is not easier than grappling (arms hidden behind the
   partner: limbs 6.6 cm), though the embrace itself is detected (F1 0.89). The hard part is hidden limbs at contact.
   ([E20](experiments/E20-calmer-contact/))
+- Engagement at range (sword fighting, 2.4 m apart): the distance between the two people is right to about 4% (8.4 cm),
+  the same relative accuracy as in close contact, but the pre-registered absolute bars fail; the placement learned on
+  grappling hurts depth at range. ([E21](experiments/E21-engagement-at-range/))
