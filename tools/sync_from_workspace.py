@@ -44,6 +44,7 @@ EXPERIMENTS = {   # repo folder: {file in the folder: workspace source}
     'E18-oracle-clicks': {'PREREG.md': R + 'clicks_prereg.md', 'RESULTS.md': R + 'clicks_results.md'},
     'E19-contact-2d-keypoints': {'PREREG.md': R + 'vitposeft_prereg.md', 'RESULTS.md': R + 'vitposeft_results.md'},
     'E20-calmer-contact': {'PREREG.md': R + 'easy_prereg.md'},
+    'E21-engagement-at-range': {'PREREG.md': R + 'sword_prereg.md'},
 }
 HARD = [r'[\w.+-]+@[\w-]+\.(com|org|net|ai|io|edu)\b', r'\bhf_[A-Za-z0-9]{20,}', r'\bgh[opsu]_[A-Za-z0-9]{20,}',
         r'\bsk-[A-Za-z0-9]{20,}', r'/home/[a-z]', r'supabase', r'user_id', r'customer']
