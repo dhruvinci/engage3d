@@ -55,3 +55,6 @@ One line per finding, newest last. Each links to the experiment that supports it
 - Given the true 2D joints as clicks, SAM 3D Body's tangled-limb error falls 15% (held-out pair) to 25% (new people);
   given today's 2D keypoints (ViTPose+) it rises 19-25%, because inside a tangle the 2D model takes the partner's
   limbs. ([E18](experiments/E18-oracle-clicks/))
+- ViTPose+ fine-tuned on Harmony4D contact is 21-23% more accurate on limb joints inside tangles (held-out and new
+  people) and halves the harm of its clicks into SAM 3D Body (+25% -> +14%), but the clicks still hurt: they land
+  exactly where the 2D model is least reliable. ([E19](experiments/E19-contact-2d-keypoints/))
