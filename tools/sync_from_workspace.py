@@ -47,6 +47,7 @@ EXPERIMENTS = {   # repo folder: {file in the folder: workspace source}
     'E21-engagement-at-range': {'PREREG.md': R + 'sword_prereg.md', 'RESULTS.md': R + 'sword_results.md'},
     'E17-confidence': {'PREREG.md': R + 'confidence_prereg.md', 'RESULTS.md': R + 'confidence_results.md'},
     'E14-temporal-limbs': {'PREREG.md': R + 'temporal_prereg.md', 'RESULTS.md': R + 'temporal_results.md'},
+    'E16-end-to-end-rfdetr': {'PREREG.md': R + 'rfdetr_prereg.md'},
 }
 HARD = [r'[\w.+-]+@[\w-]+\.(com|org|net|ai|io|edu)\b', r'\bhf_[A-Za-z0-9]{20,}', r'\bgh[opsu]_[A-Za-z0-9]{20,}',
         r'\bsk-[A-Za-z0-9]{20,}', r'/home/[a-z]', r'supabase', r'user_id', r'customer']
