@@ -58,3 +58,7 @@ One line per finding, newest last. Each links to the experiment that supports it
 - ViTPose+ fine-tuned on Harmony4D contact is 21-23% more accurate on limb joints inside tangles (held-out and new
   people) and halves the harm of its clicks into SAM 3D Body (+25% -> +14%), but the clicks still hurt: they land
   exactly where the 2D model is least reliable. ([E19](experiments/E19-contact-2d-keypoints/))
+- Calmer engagement: ballroom dancing is measured well from one camera (the two dancers' distance within 2.7 cm,
+  touching F1 0.96, limbs in contact 3.8 cm), but hugging is not easier than grappling (arms hidden behind the
+  partner: limbs 6.6 cm), though the embrace itself is detected (F1 0.89). The hard part is hidden limbs at contact.
+  ([E20](experiments/E20-calmer-contact/))
