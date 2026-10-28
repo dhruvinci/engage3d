@@ -77,3 +77,13 @@ One line per finding, newest last. Each links to the experiment that supports it
 - **Caveat (found 2026-10-27):** SAM 3D Body was trained on Harmony4D (all 24 subjects, arXiv 2602.15989), so its
   absolute numbers on Harmony4D in E10-E21, including the MMA "new people", are likely optimistic. Comparisons within
   each experiment (corrections, prompts, fits against the same model on the same views) are unaffected.
+
+## 2026-10-28
+- Six layers of understanding from one camera, on whole clips and without ground-truth boxes (RF-DETR, SAM 3.1 video
+  tracking, PMPose, SAM 3D Body with the combined depth, contact events, a narrating VLM): on 12 clips with truth, 0
+  identity switches, masks 0.69-0.90 IoU, limbs 2.9-5.2 cm, distance between the two 1.5-5.1 cm on Harmony4D (16-33 cm
+  on MAMMA dance, one dancer in front of the other), touching F1 0.96-1.00 on hugging, ballroom and grappling and
+  0.59-0.75 on strikes; karate's brief touches found 6 of 6 within 0.2 s. Not pre-registered; a looser contact
+  distance for hands (10 cm) was chosen after seeing the data, and the strict numbers are kept beside it. Difficulty
+  depends on the layer: hugging hides limbs, strikes are brief, and dance in depth defeats one camera.
+  ([E22](experiments/E22-layered-engagement/))

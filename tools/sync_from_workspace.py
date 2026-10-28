@@ -48,12 +48,14 @@ EXPERIMENTS = {   # repo folder: {file in the folder: workspace source}
     'E17-confidence': {'PREREG.md': R + 'confidence_prereg.md', 'RESULTS.md': R + 'confidence_results.md'},
     'E14-temporal-limbs': {'PREREG.md': R + 'temporal_prereg.md', 'RESULTS.md': R + 'temporal_results.md'},
     'E16-end-to-end-rfdetr': {'PREREG.md': R + 'rfdetr_prereg.md'},
+    'E22-layered-engagement': {'RESULTS.md': R + 'layered_results.md'},
 }
+EXTRA = {'benchmarks/engage_h4d/demo_layers/run_queue.sh': 'src/run_queue.sh'}   # workspace path: repo path
 HARD = [r'[\w.+-]+@[\w-]+\.(com|org|net|ai|io|edu)\b', r'\bhf_[A-Za-z0-9]{20,}', r'\bgh[opsu]_[A-Za-z0-9]{20,}',
         r'\bsk-[A-Za-z0-9]{20,}', r'/home/[a-z]', r'supabase', r'user_id', r'customer']
 SOFT = [r'kakashi', r'youtube']
 TERMS = Path(os.environ.get('ENGAGE3D_PRIVATE_TERMS', Path.home()/'.config/engage3d/private_terms.txt'))
-TEXT = {'.md', '.py', '.txt', '.cff', '.json', '.yaml', '.yml', '.cfg', '.toml', ''}
+TEXT = {'.md', '.py', '.txt', '.cff', '.json', '.yaml', '.yml', '.cfg', '.toml', '.sh', ''}
 
 
 def load_terms():
@@ -82,6 +84,7 @@ def main():
     load_terms()
     plan = [(p, REPO/'src'/p.name) for pat in CODE for p in sorted((WS/'scripts').glob(pat))]
     plan += [(WS/s, REPO/d) for s, d in DOCS.items()]
+    plan += [(WS/s, REPO/d) for s, d in EXTRA.items()]
     plan += [(WS/s, REPO/'experiments'/e/f) for e, files in EXPERIMENTS.items() for f, s in files.items()]
     hard, soft = [], []
     for src, _ in plan:

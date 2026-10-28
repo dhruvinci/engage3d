@@ -56,6 +56,11 @@ blended with SAM 3D Body's own estimate of the depth gap between the two people)
   0.96, limbs in contact 3.8 cm), hugging less so (arms hidden behind the partner), and at range (sword fighting,
   2.4 m apart) the distance is right to about 4% ([E20](experiments/E20-calmer-contact/),
   [E21](experiments/E21-engagement-at-range/)).
+- **Six layers on whole clips, without ground-truth boxes** (E22, a demo, not pre-registered): people, masks,
+  skeletons, 3D bodies in one space, contact events and a narration, on 12 clips with truth from sword sparring to
+  grappling and 17 ordinary videos. 0 identity switches; distance between the two 1.5-5.1 cm off on Harmony4D;
+  touching F1 0.96-1.00 on hugging, ballroom and grappling, 0.59-0.75 on strikes
+  ([E22](experiments/E22-layered-engagement/)).
 - **Limits:**
   - ground-truth person boxes were used;
   - SAM 3D Body was trained on Harmony4D (all 24 subjects; [arXiv 2602.15989](https://arxiv.org/abs/2602.15989), Table 1),
