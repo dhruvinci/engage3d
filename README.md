@@ -81,7 +81,8 @@ blended with SAM 3D Body's own estimate of the depth gap between the two people)
 - `experiments/E<nn>-<name>/`: `README.md` (summary), `PREREG.md` (committed before the run), `RESULTS.md`, and
   `data/` (the aggregate outputs the results quote). E04's results are in E03; E22, a demo, has no pre-registration.
 - `docs/`: measurement spec, capture design, research queue.
-- `env/`: pinned package lists of the five environments (`venv-<name>.txt`; Python 3.11-3.12, CUDA 12/13).
+- `env/`: pinned package lists of the nine environments (`venv-<name>.txt`; `venv-base` is the CPU environment; Python
+  3.11-3.14, CUDA 12/13). Each script names its environment in its docstring.
 - `tools/sync_from_workspace.py`: how this repo is exported from the private research workspace, with a privacy check.
 
 ## Data and models (not redistributed here)
