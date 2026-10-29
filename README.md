@@ -28,7 +28,8 @@ fine-tuning its decoder ([E11](experiments/E11-decoder-finetune/), fail), inform
 helps -15% / -25%, [E18](experiments/E18-oracle-clicks/); a contact-trained keypoint model does not yet,
 [E19](experiments/E19-contact-2d-keypoints/)). **Now:** RF-DETR keypoints and person masks trained on contact, end to
 end with no ground-truth boxes ([E16](experiments/E16-end-to-end-rfdetr/), running), and a per-frame trust flag that
-says when a measurement can be used ([E17](experiments/E17-confidence/), [E17b](experiments/E17b-trust-flag-deeper/)).
+says when a measurement can be used ([E17](experiments/E17-confidence/); [E17b](experiments/E17b-trust-flag-deeper/):
+with three phones, taking each moment from the camera the flag trusts most halves the distance error).
 
 ![What we measure: loops (yellow) and the limbs or torsos threading them (magenta), from ground truth](docs/assets/truth_threading_examples.jpg)
 

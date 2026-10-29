@@ -23,7 +23,7 @@ One folder per experiment. `PREREG.md` holds the question, method and pass crite
 | E15 | Hi4D and CHI3D (more interaction datasets) | dropped (2026-10-29): dataset access was not obtained (it requires an institutional registration) |
 | [E16](E16-end-to-end-rfdetr/) | End to end with no ground-truth boxes: RF-DETR keypoints and masks, then SAM 3D Body | running (pre-registered) |
 | [E17](E17-confidence/) | Can the pipeline flag the frames where its measurement is wrong? | C1, C3, C4 **pass**; C2 **fails** narrowly (flag AUROC 0.76-0.80) |
-| [E17b](E17b-trust-flag-deeper/) | Making the trust flag usable: error bars, repair, clip summaries, the best camera | running (pre-registered) |
+| [E17b](E17b-trust-flag-deeper/) | Making the trust flag usable: error bars, repair, clip summaries, the best camera | C1, C5 **pass** (the trusted camera of three halves the error); C2-C4 **fail** (bars too narrow on new people; repair and weighted summaries do not help) |
 | [E18](E18-oracle-clicks/) | Do true 2D keypoints fix tangled limbs in SAM 3D Body? | O1 **fail** (-15%, needed -25%); O4 **pass** (new people -25%) |
 | [E19](E19-contact-2d-keypoints/) | A 2D keypoint model trained on contact, feeding the clicks | **fail** (2D -21%, needed -30%; clicks still hurt) |
 | [E20](E20-calmer-contact/) | Does it already work where contact is calmer (hugging, ballroom)? | **fail** as pre-registered; ballroom works, hugging hides limbs |

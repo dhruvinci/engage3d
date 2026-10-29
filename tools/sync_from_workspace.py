@@ -49,7 +49,7 @@ EXPERIMENTS = {   # repo folder: {file in the folder: workspace source}
     'E14-temporal-limbs': {'PREREG.md': R + 'temporal_prereg.md', 'RESULTS.md': R + 'temporal_results.md'},
     'E16-end-to-end-rfdetr': {'PREREG.md': R + 'rfdetr_prereg.md'},
     'E22-layered-engagement': {'RESULTS.md': R + 'layered_results.md'},
-    'E17b-trust-flag-deeper': {'PREREG.md': R + 'trustb_prereg.md'},
+    'E17b-trust-flag-deeper': {'PREREG.md': R + 'trustb_prereg.md', 'RESULTS.md': R + 'trustb_results.md'},
 }
 EXTRA = {'benchmarks/engage_h4d/demo_layers/run_queue.sh': 'src/run_queue.sh',   # workspace path: repo path
          'benchmarks/engage_h4d/demo_layers/run_clip.sh': 'src/run_clip.sh'}
@@ -93,6 +93,7 @@ DATA = {   # repo folder: {file in its data/: workspace source}. Aggregate score
     'E20-calmer-contact': {f'{v}_summary.json': H + f'easy/{v}/summary.json' for v in
                            ('place', 'place_120ep', 'score_s3d', 'score_place_model', 'score_place_blend', 'score_place_model_120ep', 'score_place_blend_120ep')},
     'E21-engagement-at-range': {f'{v}_summary.json': H + f'sword/{v}/summary.json' for v in ('place', 'score_s3d', 'score_place_model', 'score_place_blend')},
+    'E17b-trust-flag-deeper': {'trust_b.json': H + 'trust_b/trust_b.json', 'run.log': H + 'trust_b/run.log'},
 }
 HARD = [r'[\w.+-]+@[\w-]+\.(com|org|net|ai|io|edu)\b', r'\bhf_[A-Za-z0-9]{20,}', r'\bgh[opsu]_[A-Za-z0-9]{20,}',
         r'\bsk-[A-Za-z0-9]{20,}', r'/home/[a-z]', r'supabase', r'user_id', r'customer']

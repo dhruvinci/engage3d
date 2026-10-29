@@ -87,3 +87,12 @@ One line per finding, newest last. Each links to the experiment that supports it
   distance for hands (10 cm) was chosen after seeing the data, and the strict numbers are kept beside it. Difficulty
   depends on the layer: hugging hides limbs, strikes are brief, and dance in depth defeats one camera.
   ([E22](experiments/E22-layered-engagement/))
+
+## 2026-10-29
+- The trust flag's most useful job is choosing a camera: with three phones (simulated with Harmony4D's cameras),
+  taking each moment from the camera the flag trusts most halves the distance error between the two people (held-out
+  grappling 3.37 -> 1.82 cm, -46%; new people -46%; hugging -66%; ballroom -50%), about two-thirds of what a perfect
+  choice would give. Error bars normalised by the flag cover 90.5% at the 90% level on the held-out pair but only 75% on
+  new people (too narrow there). Repairing flagged frames from trusted neighbours makes them worse (4.14 -> 5.17 cm),
+  and trust-weighted clip averages do not help. Pre-registered: C1 and C5 pass, C2-C4 fail.
+  ([E17b](experiments/E17b-trust-flag-deeper/))
