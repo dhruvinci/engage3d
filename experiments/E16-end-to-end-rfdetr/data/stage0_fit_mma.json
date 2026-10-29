@@ -1,0 +1,71 @@
+{
+ "views": 4460,
+ "tangle_points": 12672,
+ "sigmas_m": [
+  0.1,
+  0.02,
+  0.05
+ ],
+ "all_dev": {
+  "none": {
+   "tangle_joint8_median_cm": 6.046489115446535,
+   "other_joint8_median_cm": 4.61114096265856
+  },
+  "rays": {
+   "tangle_joint8_median_cm": 4.436152981010881,
+   "other_joint8_median_cm": 3.445094489309138
+  },
+  "rays_bones_hard": {
+   "tangle_joint8_median_cm": 6.371678111782156,
+   "other_joint8_median_cm": 8.022569620563763
+  },
+  "rays_soft": {
+   "tangle_joint8_median_cm": 5.0572952616344296,
+   "other_joint8_median_cm": 6.360213282483851
+  },
+  "rays_soft_time": {
+   "tangle_joint8_median_cm": 5.620445255756637,
+   "other_joint8_median_cm": 6.325389481869356
+  },
+  "rays_soft_calib": {
+   "tangle_joint8_median_cm": 3.4200527852248905,
+   "other_joint8_median_cm": 3.0617694102117907
+  },
+  "rays_soft_calib_time": {
+   "tangle_joint8_median_cm": 4.892325161653968,
+   "other_joint8_median_cm": 4.235770166491752
+  },
+  "rays_soft_truebones": {
+   "tangle_joint8_median_cm": 3.2226309797183843,
+   "other_joint8_median_cm": 2.9256106321687008
+  },
+  "rays_vs_none_tangle_95ci": [
+   -0.28139162382019156,
+   -0.25312570733284884
+  ],
+  "rays_bones_hard_vs_none_tangle_95ci": [
+   0.02389574424711758,
+   0.08091384235272103
+  ],
+  "rays_soft_vs_none_tangle_95ci": [
+   -0.18296815713840567,
+   -0.14299734009552298
+  ],
+  "rays_soft_time_vs_none_tangle_95ci": [
+   -0.09221919353255593,
+   -0.04595744301775055
+  ],
+  "rays_soft_calib_vs_none_tangle_95ci": [
+   -0.4457625649777388,
+   -0.4225123568354406
+  ],
+  "rays_soft_calib_time_vs_none_tangle_95ci": [
+   -0.2114361546519849,
+   -0.17124672432585986
+  ],
+  "rays_soft_truebones_vs_none_tangle_95ci": [
+   -0.47798507886580616,
+   -0.4543054601788041
+  ]
+ }
+}

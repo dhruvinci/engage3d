@@ -1,0 +1,86 @@
+{
+ "0.0": {
+  "rays": {
+   "tangle_joint8_median_cm": 3.905394923432998,
+   "other_joint8_median_cm": 3.3272890031680906
+  },
+  "rays_soft_calib": {
+   "tangle_joint8_median_cm": 2.9465865241873344,
+   "other_joint8_median_cm": 2.642996326304613
+  },
+  "none": {
+   "tangle_joint8_median_cm": 5.459903085034222,
+   "other_joint8_median_cm": 4.534130283642139
+  }
+ },
+ "2.5": {
+  "rays": {
+   "tangle_joint8_median_cm": 3.9488523930089254,
+   "other_joint8_median_cm": 3.381515273011014
+  },
+  "rays_soft_calib": {
+   "tangle_joint8_median_cm": 3.071544263026729,
+   "other_joint8_median_cm": 2.779397503879492
+  },
+  "none": {
+   "tangle_joint8_median_cm": 5.459903085034222,
+   "other_joint8_median_cm": 4.534130283642139
+  }
+ },
+ "5.0": {
+  "rays": {
+   "tangle_joint8_median_cm": 4.0843049468689205,
+   "other_joint8_median_cm": 3.5399362171866953
+  },
+  "rays_soft_calib": {
+   "tangle_joint8_median_cm": 3.4050569960668553,
+   "other_joint8_median_cm": 3.1425412576765135
+  },
+  "none": {
+   "tangle_joint8_median_cm": 5.459903085034222,
+   "other_joint8_median_cm": 4.534130283642139
+  }
+ },
+ "10.0": {
+  "rays": {
+   "tangle_joint8_median_cm": 4.597142960525014,
+   "other_joint8_median_cm": 4.104115280271592
+  },
+  "rays_soft_calib": {
+   "tangle_joint8_median_cm": 4.37689904191507,
+   "other_joint8_median_cm": 4.179181618063979
+  },
+  "none": {
+   "tangle_joint8_median_cm": 5.459903085034222,
+   "other_joint8_median_cm": 4.534130283642139
+  }
+ },
+ "15.0": {
+  "rays": {
+   "tangle_joint8_median_cm": 5.285610539453762,
+   "other_joint8_median_cm": 4.817934662206742
+  },
+  "rays_soft_calib": {
+   "tangle_joint8_median_cm": 5.476279444185751,
+   "other_joint8_median_cm": 5.326661661786172
+  },
+  "none": {
+   "tangle_joint8_median_cm": 5.459903085034222,
+   "other_joint8_median_cm": 4.534130283642139
+  }
+ },
+ "20.0": {
+  "rays": {
+   "tangle_joint8_median_cm": 6.045334755411582,
+   "other_joint8_median_cm": 5.57178010475998
+  },
+  "rays_soft_calib": {
+   "tangle_joint8_median_cm": 6.594038098729804,
+   "other_joint8_median_cm": 6.490400248723905
+  },
+  "none": {
+   "tangle_joint8_median_cm": 5.459903085034222,
+   "other_joint8_median_cm": 4.534130283642139
+  }
+ }
+}

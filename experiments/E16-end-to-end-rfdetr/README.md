@@ -9,4 +9,9 @@ stock detector finds the pair on the full frame; SAM 3D Body runs from true vs d
 masks, with and without clicks. Held-out grappling (criteria) and MMA (reported). Criteria fixed in advance:
 [`PREREG.md`](PREREG.md).
 
-**Status.** Pre-registered 2026-10-27; results follow in `RESULTS.md`.
+**Stage 0 (exploratory, development data only, run before the training):** with perfect inputs, a true mask helps
+hidden limbs by only 3%, true 2D clicks by 15%, and 2D plus a soft fit with a calibrated skeleton by 46%, provided the
+2D error inside tangles is 10 px or less. That target is why this experiment trains a keypoint model on contact:
+[`STAGE0.md`](STAGE0.md), data in `data/stage0_*.json`.
+
+**Status.** Pre-registered 2026-10-27; running; results follow in `RESULTS.md`.

@@ -1,0 +1,45 @@
+{
+ "views": 500,
+ "tangle_points": 2909,
+ "seconds_per_view": 3.83,
+ "gtbox": {
+  "tangle_joint8_median_cm": 4.799315333366394,
+  "other_joint8_median_cm": 4.81712706387043
+ },
+ "truemask": {
+  "tangle_joint8_median_cm": 4.643834754824638,
+  "other_joint8_median_cm": 4.742836952209473
+ },
+ "trueclicks2": {
+  "tangle_joint8_median_cm": 4.068489000201225,
+  "other_joint8_median_cm": 4.519630968570709
+ },
+ "truemask_trueclicks2": {
+  "tangle_joint8_median_cm": 4.0079183876514435,
+  "other_joint8_median_cm": 4.508141055703163
+ },
+ "truemask_vs_gtbox_tangle_95ci": [
+  -0.045429066407011796,
+  -0.008373112149724138
+ ],
+ "truemask_vs_gtbox_other_95ci": [
+  -0.02416262535568403,
+  -0.005312881677148547
+ ],
+ "trueclicks2_vs_gtbox_tangle_95ci": [
+  -0.17197597629973355,
+  -0.12368867008994933
+ ],
+ "trueclicks2_vs_gtbox_other_95ci": [
+  -0.07386049965354799,
+  -0.049525837653506107
+ ],
+ "truemask_trueclicks2_vs_gtbox_tangle_95ci": [
+  -0.18970408583837156,
+  -0.1389844941146177
+ ],
+ "truemask_trueclicks2_vs_gtbox_other_95ci": [
+  -0.07674944031373765,
+  -0.052183958794884217
+ ]
+}
