@@ -52,6 +52,47 @@ EXPERIMENTS = {   # repo folder: {file in the folder: workspace source}
     'E17b-trust-flag-deeper': {'PREREG.md': R + 'trustb_prereg.md'},
 }
 EXTRA = {'benchmarks/engage_h4d/demo_layers/run_queue.sh': 'src/run_queue.sh'}   # workspace path: repo path
+H, V = 'benchmarks/engage_h4d/', 'benchmarks/engage_vicos/'
+DATA = {   # repo folder: {file in its data/: workspace source}. Aggregate scores only: no per-item ViCoS or MAMMA data
+    'E00-benchmark-baseline': {'harmony4d_summary.json': H + 's3d_box/score/summary.json',
+                               'vicos_summary.json': V + 's3d/score/summary.json', 'vicos_summary_v2.json': V + 's3d/score_v2/summary.json'},
+    'E01-joint-rigid-fit': {f'harmony4d_{v}_summary.json': H + f'{v}/score/summary.json' for v in ('fit_full', 'fit_no_pen', 'fit_no_2d')}
+    | {f'vicos_{v}_summary.json': V + f'{v}/score/summary.json' for v in ('fit_full', 'fit_no_pen', 'fit_no_2d')}
+    | {'harmony4d_multiview_summary.json': H + 's3d_box_multiview/summary.json', 'harmony4d_oracle_summary.json': H + 's3d_box_oracle/summary.json',
+       'vicos_s3d_clicks_summary.json': V + 's3d_clicks/score/summary.json', 'vicos_clicks_fit_full.score.log': V + 'clicks_fit_full.score.log'},
+    'E02-prompthmr': {'harmony4d_phmr_summary.json': H + 'phmr_box/score/summary.json', 'harmony4d_phmr_oracle_summary.json': H + 'phmr_box/oracle/summary.json',
+                      'harmony4d_hybrid_s3dpose_phmrplace_summary.json': H + 'hybrid_s3dpose_phmrplace/score/summary.json',
+                      'harmony4d_hybrid_centroid_summary.json': H + 'hybrid_centroid/score/summary.json',
+                      'vicos_phmr_summary.json': V + 'phmr/score/summary.json', 'vicos_phmr.score.log': V + 'phmr.score.log'},
+    'E03-depth-map': {f'{m}_{v}.score.log': H + f'depth_probe/{m}/{v}.score.log' for m in ('moge', 'depthpro')
+                      for v in ('pred', 'gt_rel', 'gt_blend', 'pred_rel', 'pred_abs', 'pred_blend')}
+    | {f'{m}_blend_weights.json': H + f'depth_probe/{m}/blend_weights.json' for m in ('moge', 'depthpro')},
+    'E04-combined-depth-fresh-test': {f'moge_{v}.score.log': H + f'depth_probe_o4/moge/{v}.score.log' for v in ('pred', 'pred_rel', 'pred_blend', 'gt_blend')},
+    'E05-vicos-combined-depth': {f'vicos_{v}.score.log': V + f'{v}.score.log' for v in
+                                 ('depth_s3d.blend', 'depth_s3d.rel', 'depth_s3d_clicks.blend', 'depth_s3d_clicks.rel', 's3d_clicks')},
+    'E06-placement-model-v1': {'cv_summary.json': H + 'place_cv/summary.json', 'cv_model.score.log': H + 'place_cv/model.score.log',
+                               'cv_blend.score.log': H + 'place_cv/blend.score.log', 'test_summary.json': H + 'place_test/summary.json',
+                               'test_model.score.log': H + 'place_test/model.score.log', 'test_blend.score.log': H + 'place_test/blend.score.log',
+                               'test_s3d.score.log': H + 'place_test/s3d.score.log', 'test_s3d_summary.json': H + 'place_test/s3d_score/summary.json'},
+    'E07-placement-model-v2-cameras': {'queue.sh': H + 'night/queue.published.sh'},
+    'E08-new-people': {'summary.json': H + 'place_newpeople/summary.json', 'model_summary.json': H + 'place_newpeople/score_model/summary.json',
+                       'blend_summary.json': H + 'place_newpeople/score_blend/summary.json'},
+    'E09-athlete-variety': {f'{a}_summary.json': H + f'div/{a}/summary.json' for a in ('A', 'A_same', 'A_new')}
+    | {f'{q}.sh': H + f'div/{q}.published.sh' for q in ('queue', 'train', 'sets')},
+    'E10-limb-head': {'cv.json': H + 'limb_head/cv.json', 'test.json': H + 'limb_head/test.json'},
+    'E11-decoder-finetune': {'limb_head_test.json': H + 'limb_head_e11/test.json', 'eval.json': H + 's3d_ft/eval.json',
+                             'train_log.json': H + 's3d_ft/train_log.json'},
+    'E12-vicos-synced-phones': {'agree.json': V + 'sync/agree.json', 'place_summary.json': V + 'sync/score_place/summary.json',
+                                'clicks_summary.json': V + 'sync/score_clicks/summary.json'},
+    'E14-temporal-limbs': {'temporal.json': H + 'temporal/temporal.json'},
+    'E17-confidence': {'confidence.json': H + 'confidence/confidence.json'},
+    'E18-oracle-clicks': {'clicks.json': H + 'clicks/clicks.json'},
+    'E19-contact-2d-keypoints': {'train_log.json': H + 'vitpose_ft/train_log.json', 'predict.json': H + 'vitpose_ft/predict.json',
+                                 'clicks_heldout.json': H + 'vitpose_ft/clicks_heldout/clicks.json'},
+    'E20-calmer-contact': {f'{v}_summary.json': H + f'easy/{v}/summary.json' for v in
+                           ('place', 'place_120ep', 'score_s3d', 'score_place_model', 'score_place_blend', 'score_place_model_120ep', 'score_place_blend_120ep')},
+    'E21-engagement-at-range': {f'{v}_summary.json': H + f'sword/{v}/summary.json' for v in ('place', 'score_s3d', 'score_place_model', 'score_place_blend')},
+}
 HARD = [r'[\w.+-]+@[\w-]+\.(com|org|net|ai|io|edu)\b', r'\bhf_[A-Za-z0-9]{20,}', r'\bgh[opsu]_[A-Za-z0-9]{20,}',
         r'\bsk-[A-Za-z0-9]{20,}', r'/home/[a-z]', r'supabase', r'user_id', r'customer']
 SOFT = [r'kakashi', r'youtube']
@@ -87,6 +128,10 @@ def main():
     plan += [(WS/s, REPO/d) for s, d in DOCS.items()]
     plan += [(WS/s, REPO/d) for s, d in EXTRA.items()]
     plan += [(WS/s, REPO/'experiments'/e/f) for e, files in EXPERIMENTS.items() for f, s in files.items()]
+    plan += [(WS/s, REPO/'experiments'/e/'data'/f) for e, files in DATA.items() for f, s in files.items() if (WS/s).exists()]
+    missing = [s for files in DATA.values() for s in files.values() if not (WS/s).exists()]
+    for m in missing:
+        print('missing (skipped):', m)
     hard, soft = [], []
     for src, _ in plan:
         scan(src, src.relative_to(WS), hard, soft)

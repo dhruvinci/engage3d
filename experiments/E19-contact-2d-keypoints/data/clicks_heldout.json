@@ -1,0 +1,18 @@
+{
+ "heldout": {
+  "original": {
+   "tangle_joint8_median_cm": 5.393602140247822,
+   "other_joint8_median_cm": 4.238071292638779
+  },
+  "vitposeft2": {
+   "tangle_joint8_median_cm": 6.144317798316479,
+   "other_joint8_median_cm": 4.443659633398056
+  },
+  "views": 1068,
+  "tangle_points": 3760,
+  "vitposeft2_vs_original_tangle_95ci": [
+   0.11257671784046089,
+   0.16770044004226134
+  ]
+ }
+}

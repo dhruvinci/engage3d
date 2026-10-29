@@ -1,0 +1,24 @@
+{
+ "val": [
+  {
+   "tag": "start",
+   "tangle_joint8_median_cm": 4.809195518493652,
+   "other_joint8_median_cm": 4.7460174560546875
+  },
+  {
+   "tag": "epoch 0",
+   "tangle_joint8_median_cm": 3.9134039878845215,
+   "other_joint8_median_cm": 2.7692224979400635
+  },
+  {
+   "tag": "epoch 1",
+   "tangle_joint8_median_cm": 3.808459758758545,
+   "other_joint8_median_cm": 2.717322587966919
+  },
+  {
+   "tag": "epoch 2",
+   "tangle_joint8_median_cm": 3.8705461025238037,
+   "other_joint8_median_cm": 2.7020068168640137
+  }
+ ]
+}

@@ -1,0 +1,74 @@
+025_grappling2/cam01: 37 views
+025_grappling2/cam11: 37 views
+025_grappling2/cam06: 37 views
+025_grappling2/cam16: 37 views
+032_grappling2/cam01: 29 views
+032_grappling2/cam11: 29 views
+032_grappling2/cam06: 29 views
+032_grappling2/cam16: 29 views
+028_grappling2/cam11: 75 views
+033_grappling2/cam11: 87 views
+033_grappling2/cam01: 87 views
+028_grappling2/cam01: 75 views
+033_grappling2/cam16: 87 views
+033_grappling2/cam06: 87 views
+028_grappling2/cam16: 75 views
+034_grappling2/cam01: 25 views
+034_grappling2/cam11: 25 views
+035_grappling2/cam01: 14 views
+034_grappling2/cam06: 25 views
+035_grappling2/cam06: 14 views
+034_grappling2/cam16: 25 views
+030_grappling2/cam11: 151 views
+030_grappling2/cam01: 151 views
+035_grappling2/cam11: 14 views
+028_grappling2/cam06: 75 views
+035_grappling2/cam16: 14 views
+036_grappling2/cam01: 68 views
+036_grappling2/cam11: 68 views
+036_grappling2/cam06: 68 views
+036_grappling2/cam16: 68 views
+039_grappling2/cam01: 15 views
+039_grappling2/cam11: 15 views
+039_grappling2/cam06: 15 views
+039_grappling2/cam16: 15 views
+038_grappling2/cam01: 148 views
+038_grappling2/cam11: 148 views
+030_grappling2/cam06: 151 views
+030_grappling2/cam16: 151 views
+038_grappling2/cam16: 148 views
+038_grappling2/cam06: 148 views
+040_grappling2/cam01: 259 views
+040_grappling2/cam11: 259 views
+041_grappling2/cam01: 224 views
+041_grappling2/cam11: 224 views
+040_grappling2/cam06: 259 views
+040_grappling2/cam16: 259 views
+041_grappling2/cam06: 224 views
+041_grappling2/cam16: 224 views
+=== grappling2
+4528 views, 12 sequences; truth pairs and contact at 2 cm, predicted at 5 cm; F1 except distances (medians)
+variant          dist err cm    rel depth cm  rel lateral cm    region pairs      in contact torso->arm_loop   leg->leg_loop   arm->arm_loop    balance sign
+pred                    3.12            4.60            3.61            0.57            0.97            0.82            0.56            0.27            0.61
+fix_depth               1.01            0.19            3.58            0.60            0.97            0.87            0.60            0.30            0.62
+fix_lateral             2.83            4.52            0.86            0.56            0.96            0.84            0.54            0.24            0.56
+fix_place               0.00            0.00            0.00            0.59            0.97            0.88            0.56            0.24            0.56
+fix_rigid               2.17            2.24            3.10            0.66            0.97            0.93            0.77            0.37            0.68
+fix_limbs               3.12            4.60            3.61            0.68            0.98            0.92            0.61            0.33            0.67
+fix_rot                 3.12            4.60            3.61            0.58            0.97            0.85            0.58            0.28            0.60
+fix_center              2.30            2.50            3.45            0.63            0.97            0.91            0.62            0.34            0.65
+truth                   0.00            0.00            0.00            0.85            0.99            1.00            1.00            1.00            0.85
+
+=== pooled
+4528 views, 12 sequences; truth pairs and contact at 2 cm, predicted at 5 cm; F1 except distances (medians)
+variant          dist err cm    rel depth cm  rel lateral cm    region pairs      in contact torso->arm_loop   leg->leg_loop   arm->arm_loop    balance sign
+pred                    3.12            4.60            3.61            0.57            0.97            0.82            0.56            0.27            0.61
+fix_depth               1.01            0.19            3.58            0.60            0.97            0.87            0.60            0.30            0.62
+fix_lateral             2.83            4.52            0.86            0.56            0.96            0.84            0.54            0.24            0.56
+fix_place               0.00            0.00            0.00            0.59            0.97            0.88            0.56            0.24            0.56
+fix_rigid               2.17            2.24            3.10            0.66            0.97            0.93            0.77            0.37            0.68
+fix_limbs               3.12            4.60            3.61            0.68            0.98            0.92            0.61            0.33            0.67
+fix_rot                 3.12            4.60            3.61            0.58            0.97            0.85            0.58            0.28            0.60
+fix_center              2.30            2.50            3.45            0.63            0.97            0.91            0.62            0.34            0.65
+truth                   0.00            0.00            0.00            0.85            0.99            1.00            1.00            1.00            0.85
+

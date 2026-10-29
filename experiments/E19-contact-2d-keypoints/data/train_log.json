@@ -1,0 +1,24 @@
+{
+ "val": [
+  {
+   "tag": "start",
+   "tangle_limb_median_px_crop": 6.158788681030273,
+   "other_limb_median_px_crop": 4.382954120635986
+  },
+  {
+   "tag": "epoch 0",
+   "tangle_limb_median_px_crop": 4.565319061279297,
+   "other_limb_median_px_crop": 3.230682373046875
+  },
+  {
+   "tag": "epoch 1",
+   "tangle_limb_median_px_crop": 4.258366107940674,
+   "other_limb_median_px_crop": 2.9783549308776855
+  },
+  {
+   "tag": "epoch 2",
+   "tangle_limb_median_px_crop": 4.249977111816406,
+   "other_limb_median_px_crop": 2.9452850818634033
+  }
+ ]
+}

@@ -1,0 +1,66 @@
+{
+ "heldout": {
+  "original": {
+   "tangle_joint8_median_cm": 5.393600836396217,
+   "other_joint8_median_cm": 4.238083213567734
+  },
+  "vitpose2": {
+   "tangle_joint8_median_cm": 6.722021475434303,
+   "other_joint8_median_cm": 4.617937467992306
+  },
+  "oracle2": {
+   "tangle_joint8_median_cm": 4.599078185856342,
+   "other_joint8_median_cm": 4.0012432262301445
+  },
+  "oracle4": {
+   "tangle_joint8_median_cm": 4.48978915810585,
+   "other_joint8_median_cm": 3.816177137196064
+  },
+  "views": 1068,
+  "tangle_points": 3760,
+  "vitpose2_vs_original_tangle_95ci": [
+   0.2134319927205927,
+   0.2815261774873029
+  ],
+  "oracle2_vs_original_tangle_95ci": [
+   -0.16927004862173076,
+   -0.12662613714762058
+  ],
+  "oracle4_vs_original_tangle_95ci": [
+   -0.19107870233178983,
+   -0.1481543928769888
+  ]
+ },
+ "mma_new_people": {
+  "original": {
+   "tangle_joint8_median_cm": 6.254978105425835,
+   "other_joint8_median_cm": 4.614636674523354
+  },
+  "vitpose2": {
+   "tangle_joint8_median_cm": 7.422475889325142,
+   "other_joint8_median_cm": 4.97145839035511
+  },
+  "oracle2": {
+   "tangle_joint8_median_cm": 4.690539464354515,
+   "other_joint8_median_cm": 4.301019199192524
+  },
+  "oracle4": {
+   "tangle_joint8_median_cm": 4.3464938178658485,
+   "other_joint8_median_cm": 4.113208502531052
+  },
+  "views": 1484,
+  "tangle_points": 4208,
+  "vitpose2_vs_original_tangle_95ci": [
+   0.1481879983224128,
+   0.2188136714240624
+  ],
+  "oracle2_vs_original_tangle_95ci": [
+   -0.2745589236789017,
+   -0.2318163093199025
+  ],
+  "oracle4_vs_original_tangle_95ci": [
+   -0.3267163155051442,
+   -0.2884615675411869
+  ]
+ }
+}

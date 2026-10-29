@@ -1,0 +1,167 @@
+{
+ "settings": {
+  "epochs": 60,
+  "width": 512,
+  "seeds": 3,
+  "wd": 0.001,
+  "drop": 0.2,
+  "dist_bad_m": 0.05,
+  "limb_bad_m": 0.06
+ },
+ "dev_views": 22640,
+ "dev_bad_share_distance": 0.2711572438162544,
+ "C_heldout_grappling_cams_03_08_13_18": {
+  "distance": {
+   "views": 1068,
+   "bad_share": 0.2752808988764045,
+   "auroc": 0.7945604598428518,
+   "median_err_all_cm": 2.5974700127532833,
+   "median_err_trusted_half_cm": 1.8769532389424803,
+   "median_err_flagged_half_cm": 4.135668187557517
+  },
+  "limbs": {
+   "views": 692,
+   "bad_share": 0.43352601156069365,
+   "auroc": 0.7922448979591836,
+   "median_err_all_cm": 5.5798581704517805,
+   "median_err_trusted_half_cm": 4.6456783738790275,
+   "median_err_flagged_half_cm": 7.074978588743826
+  },
+  "single_signals_auroc_distance": {
+   "ensemble_spread": 0.7150195995710946,
+   "closest_approach_inverted": 0.4291778726994674
+  }
+ },
+ "C_mma_other_16_cams": {
+  "distance": {
+   "views": 2976,
+   "bad_share": 0.43649193548387094,
+   "auroc": 0.7631717990491287,
+   "median_err_all_cm": 4.148377710131856,
+   "median_err_trusted_half_cm": 2.5496179270027506,
+   "median_err_flagged_half_cm": 8.327010611002738
+  },
+  "limbs": {
+   "views": 1552,
+   "bad_share": 0.4645618556701031,
+   "auroc": 0.77121794005184,
+   "median_err_all_cm": 5.799999057132053,
+   "median_err_trusted_half_cm": 4.988301818784263,
+   "median_err_flagged_half_cm": 7.139783964963447
+  },
+  "single_signals_auroc_distance": {
+   "ensemble_spread": 0.7495950051941244,
+   "closest_approach_inverted": 0.3690141905405883
+  }
+ },
+ "heldout_grappling": {
+  "distance": {
+   "views": 1068,
+   "bad_share": 0.299625468164794,
+   "auroc": 0.7774481951871658,
+   "median_err_all_cm": 3.1625587229431096,
+   "median_err_trusted_half_cm": 2.228289642243342,
+   "median_err_flagged_half_cm": 4.830637195856968
+  },
+  "limbs": {
+   "views": 692,
+   "bad_share": 0.4046242774566474,
+   "auroc": 0.789623786407767,
+   "median_err_all_cm": 5.505285020194821,
+   "median_err_trusted_half_cm": 4.7016409818459035,
+   "median_err_flagged_half_cm": 6.695345712841304
+  },
+  "single_signals_auroc_distance": {
+   "ensemble_spread": 0.7289104278074866,
+   "closest_approach_inverted": 0.45989304812834225
+  }
+ },
+ "mma": {
+  "distance": {
+   "views": 1484,
+   "bad_share": 0.45485175202156336,
+   "auroc": 0.7456466602572906,
+   "median_err_all_cm": 4.443056894192115,
+   "median_err_trusted_half_cm": 3.0036208751336724,
+   "median_err_flagged_half_cm": 7.74750332246803
+  },
+  "limbs": {
+   "views": 776,
+   "bad_share": 0.5399484536082474,
+   "auroc": 0.7603805245248457,
+   "median_err_all_cm": 6.234286963864495,
+   "median_err_trusted_half_cm": 5.283119049123564,
+   "median_err_flagged_half_cm": 7.500222495626973
+  },
+  "single_signals_auroc_distance": {
+   "ensemble_spread": 0.6990047154694868,
+   "closest_approach_inverted": 0.4295325733644646
+  }
+ },
+ "hugging": {
+  "distance": {
+   "views": 604,
+   "bad_share": 0.4867549668874172,
+   "auroc": 0.7953917050691244,
+   "median_err_all_cm": 4.767401766059553,
+   "median_err_trusted_half_cm": 2.3526854522266216,
+   "median_err_flagged_half_cm": 17.26922990294351
+  },
+  "limbs": {
+   "views": 264,
+   "bad_share": 0.5643939393939394,
+   "auroc": 0.6911584476218267,
+   "median_err_all_cm": 6.3901200930442075,
+   "median_err_trusted_half_cm": 5.698433889609121,
+   "median_err_flagged_half_cm": 6.687764096357663
+  },
+  "single_signals_auroc_distance": {
+   "ensemble_spread": 0.7370199692780338,
+   "closest_approach_inverted": 0.6012617950405968
+  }
+ },
+ "ballroom": {
+  "distance": {
+   "views": 1132,
+   "bad_share": 0.31007067137809186,
+   "auroc": 0.7717842929110534,
+   "median_err_all_cm": 2.7216086448983265,
+   "median_err_trusted_half_cm": 1.87311656225711,
+   "median_err_flagged_half_cm": 4.47809558302335
+  },
+  "limbs": {
+   "views": 1100,
+   "bad_share": 0.11818181818181818,
+   "auroc": 0.788406026962728,
+   "median_err_all_cm": 3.786349962157401,
+   "median_err_trusted_half_cm": 3.5156380765385813,
+   "median_err_flagged_half_cm": 4.084424087260566
+  },
+  "single_signals_auroc_distance": {
+   "ensemble_spread": 0.7506994830938493,
+   "closest_approach_inverted": 0.41524672510588
+  }
+ },
+ "sword": {
+  "distance": {
+   "views": 1120,
+   "bad_share": 0.6776785714285715,
+   "auroc": 0.5841554166256081,
+   "median_err_all_cm": 8.007372096185673,
+   "median_err_trusted_half_cm": 7.364881602491713,
+   "median_err_flagged_half_cm": 8.712607458353116
+  },
+  "limbs": {
+   "views": 28,
+   "bad_share": 0.2857142857142857,
+   "auroc": 0.4,
+   "median_err_all_cm": 4.071757926408519,
+   "median_err_trusted_half_cm": 4.356854320071929,
+   "median_err_flagged_half_cm": 3.9759960527772717
+  },
+  "single_signals_auroc_distance": {
+   "ensemble_spread": 0.5755385968561929,
+   "closest_approach_inverted": 0.4768703535414363
+  }
+ }
+}

@@ -1,0 +1,152 @@
+{
+ "table": {
+  "standing": {
+   "O.torso->D.leg_loop": 0.0,
+   "D.torso->O.leg_loop": 0.0,
+   "O.leg->D.leg_loop": 0.0,
+   "D.leg->O.leg_loop": 0.0,
+   "mutual_leg": 0.0,
+   "any_leg_loop": 0.0,
+   "torso_leg_loop_either": 0.0,
+   "any_arm_loop": 0.175,
+   "duplicate": 0.0
+  },
+  "takedown": {
+   "O.torso->D.leg_loop": 0.0,
+   "D.torso->O.leg_loop": 0.01020408163265306,
+   "O.leg->D.leg_loop": 0.12244897959183673,
+   "D.leg->O.leg_loop": 0.08163265306122448,
+   "mutual_leg": 0.05102040816326531,
+   "any_leg_loop": 0.15306122448979592,
+   "torso_leg_loop_either": 0.01020408163265306,
+   "any_arm_loop": 0.32653061224489793,
+   "duplicate": 0.02040816326530612
+  },
+  "open_guard": {
+   "O.torso->D.leg_loop": 0.0,
+   "D.torso->O.leg_loop": 0.0,
+   "O.leg->D.leg_loop": 0.09375,
+   "D.leg->O.leg_loop": 0.11458333333333333,
+   "mutual_leg": 0.07291666666666667,
+   "any_leg_loop": 0.13541666666666666,
+   "torso_leg_loop_either": 0.0,
+   "any_arm_loop": 0.057291666666666664,
+   "duplicate": 0.0
+  },
+  "half_guard": {
+   "O.torso->D.leg_loop": 0.0,
+   "D.torso->O.leg_loop": 0.05555555555555555,
+   "O.leg->D.leg_loop": 0.19444444444444445,
+   "D.leg->O.leg_loop": 0.1527777777777778,
+   "mutual_leg": 0.09722222222222222,
+   "any_leg_loop": 0.2916666666666667,
+   "torso_leg_loop_either": 0.05555555555555555,
+   "any_arm_loop": 0.2916666666666667,
+   "duplicate": 0.0
+  },
+  "closed_guard": {
+   "O.torso->D.leg_loop": 0.22900763358778625,
+   "D.torso->O.leg_loop": 0.030534351145038167,
+   "O.leg->D.leg_loop": 0.06870229007633588,
+   "D.leg->O.leg_loop": 0.0916030534351145,
+   "mutual_leg": 0.015267175572519083,
+   "any_leg_loop": 0.3511450381679389,
+   "torso_leg_loop_either": 0.2595419847328244,
+   "any_arm_loop": 0.3511450381679389,
+   "duplicate": 0.022900763358778626
+  },
+  "5050_guard": {
+   "O.torso->D.leg_loop": 0.007142857142857143,
+   "D.torso->O.leg_loop": 0.007142857142857143,
+   "O.leg->D.leg_loop": 0.22857142857142856,
+   "D.leg->O.leg_loop": 0.22857142857142856,
+   "mutual_leg": 0.06428571428571428,
+   "any_leg_loop": 0.2357142857142857,
+   "torso_leg_loop_either": 0.007142857142857143,
+   "any_arm_loop": 0.02857142857142857,
+   "duplicate": 0.0
+  },
+  "side_control": {
+   "O.torso->D.leg_loop": 0.035398230088495575,
+   "D.torso->O.leg_loop": 0.017699115044247787,
+   "O.leg->D.leg_loop": 0.04424778761061947,
+   "D.leg->O.leg_loop": 0.035398230088495575,
+   "mutual_leg": 0.017699115044247787,
+   "any_leg_loop": 0.09734513274336283,
+   "torso_leg_loop_either": 0.05309734513274336,
+   "any_arm_loop": 0.25663716814159293,
+   "duplicate": 0.02654867256637168
+  },
+  "mount": {
+   "O.torso->D.leg_loop": 0.12903225806451613,
+   "D.torso->O.leg_loop": 0.0,
+   "O.leg->D.leg_loop": 0.12903225806451613,
+   "D.leg->O.leg_loop": 0.03225806451612903,
+   "mutual_leg": 0.010752688172043012,
+   "any_leg_loop": 0.25806451612903225,
+   "torso_leg_loop_either": 0.12903225806451613,
+   "any_arm_loop": 0.22580645161290322,
+   "duplicate": 0.03225806451612903
+  },
+  "back": {
+   "O.torso->D.leg_loop": 0.4253731343283582,
+   "D.torso->O.leg_loop": 0.007462686567164179,
+   "O.leg->D.leg_loop": 0.16417910447761194,
+   "D.leg->O.leg_loop": 0.11940298507462686,
+   "mutual_leg": 0.04477611940298507,
+   "any_leg_loop": 0.5373134328358209,
+   "torso_leg_loop_either": 0.43283582089552236,
+   "any_arm_loop": 0.4925373134328358,
+   "duplicate": 0.05970149253731343
+  },
+  "turtle": {
+   "O.torso->D.leg_loop": 0.07647058823529412,
+   "D.torso->O.leg_loop": 0.0058823529411764705,
+   "O.leg->D.leg_loop": 0.11176470588235295,
+   "D.leg->O.leg_loop": 0.041176470588235294,
+   "mutual_leg": 0.01764705882352941,
+   "any_leg_loop": 0.17058823529411765,
+   "torso_leg_loop_either": 0.08235294117647059,
+   "any_arm_loop": 0.38235294117647056,
+   "duplicate": 0.0
+  }
+ },
+ "hypotheses": {
+  "H1 mount O.torso->D.leg_loop >= 0.60; side control <= 0.20": [
+   false,
+   "mount 0.13 [0.10,0.16], side control 0.04 [0.01,0.10]"
+  ],
+  "H2 closed guard O.torso->D.leg_loop >= 0.60": [
+   false,
+   "0.23 [0.15,0.36]"
+  ],
+  "H3 half guard O.leg->D.leg_loop >= 0.40 and > closed guard": [
+   false,
+   "half 0.19 [0.17,0.21] vs closed 0.07"
+  ],
+  "H4 50/50 highest mutual leg threading": [
+   false,
+   "half_guard 0.10, open_guard 0.07, 5050_guard 0.06, takedown 0.05"
+  ],
+  "H5 standing/takedown/turtle/side control any leg-loop threading <= 0.20": [
+   true,
+   "standing 0.00, takedown 0.15, turtle 0.17, side_control 0.10"
+  ],
+  "H6 back torso through either leg loop >= 0.40": [
+   true,
+   "0.43 [0.40,0.46]"
+  ]
+ },
+ "n": {
+  "standing": 80,
+  "takedown": 98,
+  "open_guard": 192,
+  "half_guard": 72,
+  "closed_guard": 131,
+  "5050_guard": 140,
+  "side_control": 113,
+  "mount": 93,
+  "back": 134,
+  "turtle": 170
+ }
+}

@@ -1,0 +1,34 @@
+{
+ "heldout": {
+  "original": {
+   "tangle_joint8_median_cm": 5.400933139026165,
+   "other_joint8_median_cm": 4.236909002065659,
+   "tangle_points": 3760
+  },
+  "finetuned": {
+   "tangle_joint8_median_cm": 4.966418631374836,
+   "other_joint8_median_cm": 2.498268522322178,
+   "tangle_points": 3760
+  },
+  "finetuned_vs_original_tangle_95ci": [
+   -0.10537616842458934,
+   -0.0515305140973431
+  ]
+ },
+ "mma_new_people": {
+  "original": {
+   "tangle_joint8_median_cm": 6.271473318338394,
+   "other_joint8_median_cm": 4.617504961788654,
+   "tangle_points": 4208
+  },
+  "finetuned": {
+   "tangle_joint8_median_cm": 5.721279978752136,
+   "other_joint8_median_cm": 3.141387365758419,
+   "tangle_points": 4208
+  },
+  "finetuned_vs_original_tangle_95ci": [
+   -0.10485414610397625,
+   -0.06980626375365388
+  ]
+ }
+}

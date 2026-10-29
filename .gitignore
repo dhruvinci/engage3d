@@ -6,6 +6,6 @@ __pycache__/
 *.ckpt
 benchmarks/
 outputs/
-data/
+/data/
 .venv*/
 .hf/

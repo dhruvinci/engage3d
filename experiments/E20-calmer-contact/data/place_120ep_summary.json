@@ -1,0 +1,52 @@
+{
+ "blend": {
+  "config_err_cm": 7.984312258780609,
+  "rel_depth_cm": 6.0532053341094905,
+  "rel_lateral_cm": 2.6283773512859665
+ },
+ "model": {
+  "config_err_cm": 6.61143045768878,
+  "rel_depth_cm": 6.005428532022927,
+  "rel_lateral_cm": 2.376123741081302
+ },
+ "n": 1736,
+ "n_train_views": 22640,
+ "width": 512,
+ "epochs": 120,
+ "wd": 0.001,
+ "drop": 0.2,
+ "seeds": 3,
+ "tokens": 0,
+ "mirror": true,
+ "train_cams": "all",
+ "eval_cams": "cam01,cam06,cam11,cam16",
+ "test": true,
+ "by_activity": {
+  "ballroom2": {
+   "n": 1132,
+   "blend": {
+    "config_err_cm": 6.663315350791447,
+    "rel_depth_cm": 5.697966453926817,
+    "rel_lateral_cm": 2.0577777685696947
+   },
+   "model": {
+    "config_err_cm": 6.216237826381661,
+    "rel_depth_cm": 5.213935149148519,
+    "rel_lateral_cm": 1.8816673482809174
+   }
+  },
+  "hugging": {
+   "n": 604,
+   "blend": {
+    "config_err_cm": 10.2854371552867,
+    "rel_depth_cm": 7.0588538901238955,
+    "rel_lateral_cm": 4.7903153024881435
+   },
+   "model": {
+    "config_err_cm": 8.304165670754921,
+    "rel_depth_cm": 7.922834408438895,
+    "rel_lateral_cm": 4.099571834039484
+   }
+  }
+ }
+}

@@ -1,0 +1,101 @@
+025_grappling2/cam06: 5 views
+025_grappling2/cam11: 5 views
+025_grappling2/cam16: 5 views
+028_grappling2/cam11: 9 views
+028_grappling2/cam01: 9 views
+028_grappling2/cam16: 9 views
+030_grappling2/cam16: 19 views
+028_grappling2/cam06: 9 views
+032_grappling2/cam01: 4 views
+031_grappling2/cam01: 5 views
+032_grappling2/cam06: 4 views
+032_grappling2/cam11: 4 views
+032_grappling2/cam16: 4 views
+031_grappling2/cam06: 5 views
+033_grappling2/cam01: 11 views
+030_grappling2/cam01: 19 views
+031_grappling2/cam11: 5 views
+033_grappling2/cam06: 11 views
+031_grappling2/cam16: 5 views
+033_grappling2/cam11: 11 views
+034_grappling2/cam11: 3 views
+034_grappling2/cam16: 3 views
+035_grappling2/cam01: 2 views
+033_grappling2/cam16: 11 views
+035_grappling2/cam06: 2 views
+034_grappling2/cam01: 3 views
+035_grappling2/cam11: 2 views
+016_mma4/cam01: 46 views
+035_grappling2/cam16: 2 views
+034_grappling2/cam06: 3 views
+030_grappling2/cam06: 19 views
+037_grappling2/cam01: 5 views
+036_grappling2/cam01: 8 views
+037_grappling2/cam06: 5 views
+036_grappling2/cam06: 8 views
+037_grappling2/cam11: 5 views
+037_grappling2/cam16: 5 views
+036_grappling2/cam11: 8 views
+036_grappling2/cam16: 8 views
+030_grappling2/cam11: 19 views
+039_grappling2/cam11: 2 views
+039_grappling2/cam16: 2 views
+038_grappling2/cam01: 18 views
+038_grappling2/cam06: 18 views
+038_grappling2/cam11: 18 views
+016_mma4/cam06: 46 views
+040_grappling2/cam16: 32 views
+040_grappling2/cam01: 32 views
+038_grappling2/cam16: 18 views
+039_grappling2/cam01: 2 views
+039_grappling2/cam06: 2 views
+042_grappling2/cam01: 3 views
+042_grappling2/cam06: 3 views
+042_grappling2/cam11: 3 views
+042_grappling2/cam16: 3 views
+041_grappling2/cam01: 28 views
+040_grappling2/cam06: 32 views
+043_grappling2/cam01: 20 views
+016_mma4/cam11: 46 views
+041_grappling2/cam06: 28 views
+040_grappling2/cam11: 32 views
+043_grappling2/cam06: 20 views
+041_grappling2/cam11: 28 views
+043_grappling2/cam11: 20 views
+016_mma4/cam16: 46 views
+025_grappling2/cam01: 5 views
+043_grappling2/cam16: 20 views
+041_grappling2/cam16: 28 views
+=== grappling2
+696 views, 16 sequences; truth pairs and contact at 2 cm, predicted at 5 cm; F1 except distances (medians)
+variant          dist err cm    rel depth cm  rel lateral cm    region pairs      in contact torso->arm_loop   leg->leg_loop   arm->arm_loop    balance sign
+pred                    9.96           14.65            5.06            0.45            0.88            0.80            0.42            0.16            0.49
+fix_depth               1.42            0.24            4.85            0.58            0.96            0.90            0.55            0.27            0.62
+fix_lateral             9.84           14.41            1.24            0.43            0.87            0.87            0.38            0.15            0.45
+fix_place               0.00            0.00            0.00            0.55            0.95            0.92            0.48            0.19            0.57
+fix_rigid               2.05            2.26            3.03            0.66            0.97            0.95            0.80            0.41            0.74
+fix_limbs               9.96           14.65            5.06            0.51            0.89            0.88            0.38            0.21            0.52
+truth                   0.00            0.00            0.00            0.85            0.98            1.00            1.00            1.00            0.89
+
+=== mma4
+184 views, 1 sequences; truth pairs and contact at 2 cm, predicted at 5 cm; F1 except distances (medians)
+variant          dist err cm    rel depth cm  rel lateral cm    region pairs      in contact torso->arm_loop   leg->leg_loop   arm->arm_loop    balance sign
+pred                    9.59           14.98            5.25            0.26            0.82            0.00            0.00            0.00            0.00
+fix_depth               2.09            0.32            4.93            0.43            0.87            0.00            0.00            0.12            0.25
+fix_lateral             9.37           14.67            1.05            0.24            0.82            0.00            0.00            0.07            0.25
+fix_place               0.00            0.00            0.00            0.37            0.86            0.00            0.00            0.14            0.50
+fix_rigid               1.74            2.05            2.89            0.60            0.96            0.00            0.00            0.12            0.25
+fix_limbs               9.59           14.98            5.25            0.42            0.91            0.00            0.00            0.06            0.25
+truth                   0.00            0.00            0.00            0.81            1.00            0.00            0.00            1.00            1.00
+
+=== pooled
+880 views, 17 sequences; truth pairs and contact at 2 cm, predicted at 5 cm; F1 except distances (medians)
+variant          dist err cm    rel depth cm  rel lateral cm    region pairs      in contact torso->arm_loop   leg->leg_loop   arm->arm_loop    balance sign
+pred                    9.83           14.76            5.13            0.43            0.87            0.78            0.40            0.14            0.48
+fix_depth               1.53            0.26            4.85            0.56            0.95            0.90            0.52            0.25            0.62
+fix_lateral             9.78           14.41            1.19            0.41            0.86            0.85            0.36            0.14            0.45
+fix_place               0.00            0.00            0.00            0.53            0.93            0.92            0.45            0.18            0.57
+fix_rigid               2.00            2.23            3.02            0.66            0.97            0.95            0.76            0.38            0.73
+fix_limbs               9.83           14.76            5.13            0.50            0.90            0.87            0.37            0.19            0.52
+truth                   0.00            0.00            0.00            0.85            0.98            1.00            1.00            1.00            0.89
+

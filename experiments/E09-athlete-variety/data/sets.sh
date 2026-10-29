@@ -1,0 +1,5 @@
+# Published copy of sets.sh as run: absolute paths replaced by $WORKSPACE and $ENGAGE3D_H4D.
+SAME=001_grappling2,003_grappling2,004_grappling2,005_grappling2,008_grappling2,009_grappling2,010_grappling2,012_grappling2,013_grappling2,014_grappling2,015_grappling2,016_grappling2,017_grappling2,020_grappling2,021_grappling2,024_grappling2
+NEWTRAIN=002_grappling,005_grappling,010_grappling,012_grappling,014_grappling,019_grappling,021_grappling,023_grappling,024_grappling,026_grappling,029_grappling,031_grappling,032_grappling,034_grappling,035_grappling,038_grappling,040_grappling,041_grappling,042_grappling,043_grappling,045_grappling,046_grappling,047_grappling,048_grappling,049_grappling,051_grappling,053_grappling,054_grappling,055_grappling
+NEWTEST=001_grappling,017_grappling,028_grappling,037_grappling,044_grappling,050_grappling
+TEST4=031_grappling2,037_grappling2,042_grappling2,043_grappling2

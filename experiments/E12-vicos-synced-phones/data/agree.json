@@ -1,0 +1,80 @@
+{
+ "moments": 492,
+ "variants": {
+  "clicks": {
+   "identity_free": {
+    "sync_dice": 0.15928000829961614,
+    "baseline_dice": 0.09822076978939724,
+    "difference": 0.0610592385102189,
+    "difference_95ci": [
+     0.026059300416255936,
+     0.09291222033728255
+    ],
+    "pairs": 459,
+    "moments": 291
+   },
+   "identity_aware": {
+    "sync_dice": 0.10829442888266418,
+    "baseline_dice": 0.043486530414634995,
+    "difference": 0.06480789846802917,
+    "difference_95ci": [
+     0.03744728640354821,
+     0.0909434276850673
+    ],
+    "pairs": 459,
+    "moments": 291
+   },
+   "pairs_with_no_relation_in_either_view": 376
+  },
+  "blend": {
+   "identity_free": {
+    "sync_dice": 0.2746528594963521,
+    "baseline_dice": 0.14244528124264533,
+    "difference": 0.13220757825370677,
+    "difference_95ci": [
+     0.0905372362309163,
+     0.17484094245213275
+    ],
+    "pairs": 607,
+    "moments": 347
+   },
+   "identity_aware": {
+    "sync_dice": 0.18127699684536586,
+    "baseline_dice": 0.08073141392746006,
+    "difference": 0.1005455829179058,
+    "difference_95ci": [
+     0.06939772232323058,
+     0.1320113952168293
+    ],
+    "pairs": 607,
+    "moments": 347
+   },
+   "pairs_with_no_relation_in_either_view": 263
+  },
+  "place": {
+   "identity_free": {
+    "sync_dice": 0.28192837465564735,
+    "baseline_dice": 0.18696576151121602,
+    "difference": 0.09496261314443133,
+    "difference_95ci": [
+     0.0561564602730208,
+     0.13194622606294734
+    ],
+    "pairs": 605,
+    "moments": 334
+   },
+   "identity_aware": {
+    "sync_dice": 0.19002754820936638,
+    "baseline_dice": 0.11151515151515151,
+    "difference": 0.07851239669421486,
+    "difference_95ci": [
+     0.04638602938566603,
+     0.11226878541512689
+    ],
+    "pairs": 605,
+    "moments": 334
+   },
+   "pairs_with_no_relation_in_either_view": 277
+  }
+ }
+}

@@ -1,0 +1,305 @@
+{
+ "ballroom2": {
+  "pred": {
+   "torso->arm_loop": 0.0,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.0,
+   "balance": NaN,
+   "dist_err": 0.0412661706111041,
+   "rel_depth": 0.07804257216896812,
+   "rel_lat": 0.02189028757436438,
+   "contact": 0.8939393939393939,
+   "region_pairs": 0.3837357052096569
+  },
+  "fix_depth": {
+   "torso->arm_loop": 0.0,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.0,
+   "balance": NaN,
+   "dist_err": 0.009002223809626758,
+   "rel_depth": 0.0006244549233555862,
+   "rel_lat": 0.01914903960884121,
+   "contact": 0.9423728813559323,
+   "region_pairs": 0.5616053169734151
+  },
+  "fix_lateral": {
+   "torso->arm_loop": 0.0,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.0,
+   "balance": NaN,
+   "dist_err": 0.03862592310629842,
+   "rel_depth": 0.07836729413356218,
+   "rel_lat": 0.006140260425279568,
+   "contact": 0.8781985670419651,
+   "region_pairs": 0.3909568394610642
+  },
+  "fix_place": {
+   "torso->arm_loop": 0.0,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.0,
+   "balance": NaN,
+   "dist_err": 0.0,
+   "rel_depth": 0.0,
+   "rel_lat": 0.0,
+   "contact": 0.9262536873156343,
+   "region_pairs": 0.5620722050731446
+  },
+  "fix_rigid": {
+   "torso->arm_loop": 0.0,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.0,
+   "balance": NaN,
+   "dist_err": 0.010774588744157931,
+   "rel_depth": 0.012490073572655549,
+   "rel_lat": 0.01589419068251543,
+   "contact": 0.9664936290703162,
+   "region_pairs": 0.6859891153018606
+  },
+  "fix_limbs": {
+   "torso->arm_loop": 0.0,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.0,
+   "balance": NaN,
+   "dist_err": 0.0412661706111041,
+   "rel_depth": 0.07804257216896812,
+   "rel_lat": 0.02189028757436438,
+   "contact": 0.936980947728383,
+   "region_pairs": 0.5148133897652943
+  },
+  "fix_rot": {
+   "torso->arm_loop": 0.0,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.0,
+   "balance": NaN,
+   "dist_err": 0.0412661706111041,
+   "rel_depth": 0.07804257216896812,
+   "rel_lat": 0.02189028757436438,
+   "contact": 0.9240568348848605,
+   "region_pairs": 0.43044172432144756
+  },
+  "fix_center": {
+   "torso->arm_loop": 0.0,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.0,
+   "balance": NaN,
+   "dist_err": 0.011232289686753272,
+   "rel_depth": 0.015480867815666544,
+   "rel_lat": 0.0184774972217158,
+   "contact": 0.9460500963391137,
+   "region_pairs": 0.5827559661277907
+  },
+  "truth": {
+   "torso->arm_loop": 0.0,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.0,
+   "balance": NaN,
+   "dist_err": 0.0,
+   "rel_depth": 0.0,
+   "rel_lat": 0.0,
+   "contact": 0.9794392523364486,
+   "region_pairs": 0.8631360332294912
+  }
+ },
+ "hugging": {
+  "pred": {
+   "torso->arm_loop": 0.8903436988543372,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.2835820895522388,
+   "balance": 0.1744186046511628,
+   "dist_err": 0.0810941813602406,
+   "rel_depth": 0.0987518208894603,
+   "rel_lat": 0.060402578098179616,
+   "contact": 0.8770491803278688,
+   "region_pairs": 0.15384615384615383
+  },
+  "fix_depth": {
+   "torso->arm_loop": 0.6735112936344969,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.2537313432835821,
+   "balance": 0.13953488372093023,
+   "dist_err": 0.023554114901607193,
+   "rel_depth": 0.003730995264423945,
+   "rel_lat": 0.038117386347899566,
+   "contact": 0.871900826446281,
+   "region_pairs": 0.20116985892877623
+  },
+  "fix_lateral": {
+   "torso->arm_loop": 0.7606177606177607,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.12213740458015265,
+   "balance": 0.19767441860465115,
+   "dist_err": 0.036627018246187804,
+   "rel_depth": 0.0960156468949874,
+   "rel_lat": 0.019692026325132048,
+   "contact": 0.8793456032719836,
+   "region_pairs": 0.17835163509110652
+  },
+  "fix_place": {
+   "torso->arm_loop": 0.5818181818181819,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.11886304909560724,
+   "balance": 0.06976744186046512,
+   "dist_err": 0.0,
+   "rel_depth": 0.0,
+   "rel_lat": 0.0,
+   "contact": 0.8636363636363635,
+   "region_pairs": 0.24987814784727866
+  },
+  "fix_rigid": {
+   "torso->arm_loop": 0.9936305732484078,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.23750000000000002,
+   "balance": 0.06976744186046512,
+   "dist_err": 0.03547484198502168,
+   "rel_depth": 0.02735848136624991,
+   "rel_lat": 0.029365777590597227,
+   "contact": 0.941860465116279,
+   "region_pairs": 0.6504776153757624
+  },
+  "fix_limbs": {
+   "torso->arm_loop": 0.41882352941176465,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.35356200527704484,
+   "balance": 0.5755813953488372,
+   "dist_err": 0.0810941813602406,
+   "rel_depth": 0.0987518208894603,
+   "rel_lat": 0.060402578098179616,
+   "contact": 0.942528735632184,
+   "region_pairs": 0.22400506703261905
+  },
+  "fix_rot": {
+   "torso->arm_loop": 0.5133928571428571,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.2017167381974249,
+   "balance": 0.023255813953488372,
+   "dist_err": 0.0810941813602406,
+   "rel_depth": 0.0987518208894603,
+   "rel_lat": 0.06040257809817963,
+   "contact": 0.9245647969052224,
+   "region_pairs": 0.24599937245058046
+  },
+  "fix_center": {
+   "torso->arm_loop": 0.8051948051948051,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.32751091703056767,
+   "balance": 0.1686046511627907,
+   "dist_err": 0.05644559110447611,
+   "rel_depth": 0.03312422284340233,
+   "rel_lat": 0.04424031388186811,
+   "contact": 0.8924949290060852,
+   "region_pairs": 0.1708835341365462
+  },
+  "truth": {
+   "torso->arm_loop": 1.0,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 1.0,
+   "balance": 1.0,
+   "dist_err": 0.0,
+   "rel_depth": 0.0,
+   "rel_lat": 0.0,
+   "contact": 0.9850746268656716,
+   "region_pairs": 0.7900801603206413
+  }
+ },
+ "pooled": {
+  "pred": {
+   "torso->arm_loop": 0.7838616714697407,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.2306525037936267,
+   "balance": 0.1744186046511628,
+   "dist_err": 0.05231363076870438,
+   "rel_depth": 0.0852238468163177,
+   "rel_lat": 0.028976813086166783,
+   "contact": 0.8905996758508914,
+   "region_pairs": 0.2608695652173913
+  },
+  "fix_depth": {
+   "torso->arm_loop": 0.6495049504950495,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.2203023758099352,
+   "balance": 0.13953488372093023,
+   "dist_err": 0.011828812895334023,
+   "rel_depth": 0.0008790701518143084,
+   "rel_lat": 0.024683723275412565,
+   "contact": 0.9289917614750883,
+   "region_pairs": 0.3716375506256423
+  },
+  "fix_lateral": {
+   "torso->arm_loop": 0.686411149825784,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.096,
+   "balance": 0.19767441860465115,
+   "dist_err": 0.037951493141195725,
+   "rel_depth": 0.08571295748975499,
+   "rel_lat": 0.008604073419821867,
+   "contact": 0.8784281620957839,
+   "region_pairs": 0.28759166911117623
+  },
+  "fix_place": {
+   "torso->arm_loop": 0.579185520361991,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.10407239819004524,
+   "balance": 0.06976744186046512,
+   "dist_err": 0.0,
+   "rel_depth": 0.0,
+   "rel_lat": 0.0,
+   "contact": 0.9142176330420969,
+   "region_pairs": 0.4208437454064384
+  },
+  "fix_rigid": {
+   "torso->arm_loop": 0.9936305732484078,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.2324159021406728,
+   "balance": 0.06976744186046512,
+   "dist_err": 0.01543490765514538,
+   "rel_depth": 0.015471112102807374,
+   "rel_lat": 0.01930751080636455,
+   "contact": 0.9616698292220114,
+   "region_pairs": 0.6673899939722724
+  },
+  "fix_limbs": {
+   "torso->arm_loop": 0.3377609108159393,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.2537878787878788,
+   "balance": 0.5755813953488372,
+   "dist_err": 0.05231363076870438,
+   "rel_depth": 0.0852238468163177,
+   "rel_lat": 0.028976813086166783,
+   "contact": 0.9381082133125731,
+   "region_pairs": 0.3761638733705773
+  },
+  "fix_rot": {
+   "torso->arm_loop": 0.4299065420560748,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.15824915824915825,
+   "balance": 0.023255813953488372,
+   "dist_err": 0.05231363076870438,
+   "rel_depth": 0.08522384681631769,
+   "rel_lat": 0.028976813086166783,
+   "contact": 0.9241594996090696,
+   "region_pairs": 0.33741295631989876
+  },
+  "fix_center": {
+   "torso->arm_loop": 0.776386404293381,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 0.2958579881656805,
+   "balance": 0.1686046511627907,
+   "dist_err": 0.017327357542873345,
+   "rel_depth": 0.019889940542146108,
+   "rel_lat": 0.023730027544069405,
+   "contact": 0.9357726741922927,
+   "region_pairs": 0.35169539258758586
+  },
+  "truth": {
+   "torso->arm_loop": 1.0,
+   "leg->leg_loop": 0.0,
+   "arm->arm_loop": 1.0,
+   "balance": 1.0,
+   "dist_err": 0.0,
+   "rel_depth": 0.0,
+   "rel_lat": 0.0,
+   "contact": 0.9805680119581465,
+   "region_pairs": 0.8300215737481549
+  }
+ }
+}

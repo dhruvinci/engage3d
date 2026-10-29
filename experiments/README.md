@@ -30,5 +30,7 @@ One folder per experiment. `PREREG.md` holds the question, method and pass crite
 | [E21](E21-engagement-at-range/) | Engagement at range: sword fighting | **fail** on absolute bars; distance right to about 4% at 2.4 m |
 | [E22](E22-layered-engagement/) | Six layers of understanding on whole clips, across a spectrum of engagement | demo, not pre-registered (0 identity switches; distance 1.5-5.1 cm on Harmony4D) |
 
-E04 has no `RESULTS.md` (its results are in E03); E22 has no `PREREG.md` (a demo). Plan:
+Each folder's `data/` holds the experiment's aggregate outputs (score summaries and logs, as written by the scripts),
+copied from the research workspace by `tools/sync_from_workspace.py`; per-item ViCoS and MAMMA data are not included
+(their licences). E04 has no `RESULTS.md` (its results are in E03); E22 has no `PREREG.md` (a demo). Plan:
 [`docs/RESEARCH_QUEUE.md`](../docs/RESEARCH_QUEUE.md).

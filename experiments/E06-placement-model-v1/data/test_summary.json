@@ -1,0 +1,18 @@
+{
+ "blend": {
+  "config_err_cm": 8.448709138004457,
+  "rel_depth_cm": 6.08023843672254,
+  "rel_lateral_cm": 5.140298081393254
+ },
+ "model": {
+  "config_err_cm": 6.614619255605761,
+  "rel_depth_cm": 4.3768284283836945,
+  "rel_lateral_cm": 2.9147307284428234
+ },
+ "n": 1068,
+ "epochs": 60,
+ "wd": 0.001,
+ "drop": 0.2,
+ "seeds": 3,
+ "test": true
+}

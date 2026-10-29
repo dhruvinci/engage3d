@@ -1,0 +1,152 @@
+{
+ "table": {
+  "standing": {
+   "O.torso->D.leg_loop": 0.0,
+   "D.torso->O.leg_loop": 0.0,
+   "O.leg->D.leg_loop": 0.0,
+   "D.leg->O.leg_loop": 0.0,
+   "mutual_leg": 0.0,
+   "any_leg_loop": 0.0,
+   "torso_leg_loop_either": 0.0,
+   "any_arm_loop": 0.1875,
+   "duplicate": 0.0125
+  },
+  "takedown": {
+   "O.torso->D.leg_loop": 0.0,
+   "D.torso->O.leg_loop": 0.0,
+   "O.leg->D.leg_loop": 0.10828025477707007,
+   "D.leg->O.leg_loop": 0.1337579617834395,
+   "mutual_leg": 0.044585987261146494,
+   "any_leg_loop": 0.19745222929936307,
+   "torso_leg_loop_either": 0.0,
+   "any_arm_loop": 0.3885350318471338,
+   "duplicate": 0.08917197452229299
+  },
+  "open_guard": {
+   "O.torso->D.leg_loop": 0.0,
+   "D.torso->O.leg_loop": 0.00625,
+   "O.leg->D.leg_loop": 0.0875,
+   "D.leg->O.leg_loop": 0.10625,
+   "mutual_leg": 0.05625,
+   "any_leg_loop": 0.14375,
+   "torso_leg_loop_either": 0.00625,
+   "any_arm_loop": 0.075,
+   "duplicate": 0.025
+  },
+  "half_guard": {
+   "O.torso->D.leg_loop": 0.0,
+   "D.torso->O.leg_loop": 0.03355704697986577,
+   "O.leg->D.leg_loop": 0.2348993288590604,
+   "D.leg->O.leg_loop": 0.19463087248322147,
+   "mutual_leg": 0.11409395973154363,
+   "any_leg_loop": 0.31543624161073824,
+   "torso_leg_loop_either": 0.03355704697986577,
+   "any_arm_loop": 0.4697986577181208,
+   "duplicate": 0.2953020134228188
+  },
+  "closed_guard": {
+   "O.torso->D.leg_loop": 0.23125,
+   "D.torso->O.leg_loop": 0.01875,
+   "O.leg->D.leg_loop": 0.1125,
+   "D.leg->O.leg_loop": 0.08125,
+   "mutual_leg": 0.025,
+   "any_leg_loop": 0.40625,
+   "torso_leg_loop_either": 0.25,
+   "any_arm_loop": 0.4875,
+   "duplicate": 0.2375
+  },
+  "5050_guard": {
+   "O.torso->D.leg_loop": 0.0375,
+   "D.torso->O.leg_loop": 0.0375,
+   "O.leg->D.leg_loop": 0.2625,
+   "D.leg->O.leg_loop": 0.2625,
+   "mutual_leg": 0.0625,
+   "any_leg_loop": 0.2875,
+   "torso_leg_loop_either": 0.0375,
+   "any_arm_loop": 0.125,
+   "duplicate": 0.075
+  },
+  "side_control": {
+   "O.torso->D.leg_loop": 0.03125,
+   "D.torso->O.leg_loop": 0.01875,
+   "O.leg->D.leg_loop": 0.03125,
+   "D.leg->O.leg_loop": 0.04375,
+   "mutual_leg": 0.00625,
+   "any_leg_loop": 0.1,
+   "torso_leg_loop_either": 0.05,
+   "any_arm_loop": 0.40625,
+   "duplicate": 0.2625
+  },
+  "mount": {
+   "O.torso->D.leg_loop": 0.21875,
+   "D.torso->O.leg_loop": 0.00625,
+   "O.leg->D.leg_loop": 0.1125,
+   "D.leg->O.leg_loop": 0.0625,
+   "mutual_leg": 0.01875,
+   "any_leg_loop": 0.35,
+   "torso_leg_loop_either": 0.225,
+   "any_arm_loop": 0.29375,
+   "duplicate": 0.25
+  },
+  "back": {
+   "O.torso->D.leg_loop": 0.4875,
+   "D.torso->O.leg_loop": 0.00625,
+   "O.leg->D.leg_loop": 0.15625,
+   "D.leg->O.leg_loop": 0.13125,
+   "mutual_leg": 0.05625,
+   "any_leg_loop": 0.58125,
+   "torso_leg_loop_either": 0.49375,
+   "any_arm_loop": 0.51875,
+   "duplicate": 0.05625
+  },
+  "turtle": {
+   "O.torso->D.leg_loop": 0.06875,
+   "D.torso->O.leg_loop": 0.0,
+   "O.leg->D.leg_loop": 0.08125,
+   "D.leg->O.leg_loop": 0.0625,
+   "mutual_leg": 0.04375,
+   "any_leg_loop": 0.14375,
+   "torso_leg_loop_either": 0.06875,
+   "any_arm_loop": 0.4375,
+   "duplicate": 0.03125
+  }
+ },
+ "hypotheses": {
+  "H1 mount O.torso->D.leg_loop >= 0.60; side control <= 0.20": [
+   false,
+   "mount 0.22 [0.19,0.23], side control 0.03 [0.01,0.08]"
+  ],
+  "H2 closed guard O.torso->D.leg_loop >= 0.60": [
+   false,
+   "0.23 [0.18,0.32]"
+  ],
+  "H3 half guard O.leg->D.leg_loop >= 0.40 and > closed guard": [
+   false,
+   "half 0.23 [0.19,0.31] vs closed 0.11"
+  ],
+  "H4 50/50 highest mutual leg threading": [
+   false,
+   "half_guard 0.11, 5050_guard 0.06, open_guard 0.06, back 0.06"
+  ],
+  "H5 standing/takedown/turtle/side control any leg-loop threading <= 0.20": [
+   true,
+   "standing 0.00, takedown 0.20, turtle 0.14, side_control 0.10"
+  ],
+  "H6 back torso through either leg loop >= 0.40": [
+   true,
+   "0.49 [0.48,0.51]"
+  ]
+ },
+ "n": {
+  "standing": 80,
+  "takedown": 157,
+  "open_guard": 160,
+  "half_guard": 149,
+  "closed_guard": 160,
+  "5050_guard": 80,
+  "side_control": 160,
+  "mount": 160,
+  "back": 160,
+  "turtle": 160
+ }
+}

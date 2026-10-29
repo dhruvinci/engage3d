@@ -1,0 +1,22 @@
+{
+ "heldout": {
+  "released": {
+   "tangle_limb_median_px": 24.49922414280687,
+   "other_limb_median_px": 14.66842828028051
+  },
+  "finetuned": {
+   "tangle_limb_median_px": 19.244011461417408,
+   "other_limb_median_px": 9.444868138153087
+  }
+ },
+ "mma_new_people": {
+  "released": {
+   "tangle_limb_median_px": 24.250989037413767,
+   "other_limb_median_px": 16.709543183090286
+  },
+  "finetuned": {
+   "tangle_limb_median_px": 18.67833198692246,
+   "other_limb_median_px": 10.376193519039216
+  }
+ }
+}

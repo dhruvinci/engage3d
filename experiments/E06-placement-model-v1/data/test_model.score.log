@@ -1,0 +1,42 @@
+037_grappling2/cam06: 38 views
+037_grappling2/cam01: 38 views
+037_grappling2/cam16: 38 views
+037_grappling2/cam11: 38 views
+031_grappling2/cam16: 42 views
+031_grappling2/cam06: 42 views
+031_grappling2/cam01: 42 views
+031_grappling2/cam11: 42 views
+042_grappling2/cam06: 24 views
+042_grappling2/cam01: 24 views
+042_grappling2/cam11: 24 views
+042_grappling2/cam16: 24 views
+043_grappling2/cam16: 163 views
+043_grappling2/cam06: 163 views
+043_grappling2/cam11: 163 views
+043_grappling2/cam01: 163 views
+=== grappling2
+1068 views, 4 sequences; truth pairs and contact at 2 cm, predicted at 5 cm; F1 except distances (medians)
+variant          dist err cm    rel depth cm  rel lateral cm    region pairs      in contact torso->arm_loop   leg->leg_loop   arm->arm_loop    balance sign
+pred                    3.17            4.30            2.93            0.60            0.98            0.76            0.40            0.55            0.56
+fix_depth               1.02            0.22            2.82            0.62            0.98            0.77            0.31            0.56            0.51
+fix_lateral             3.12            4.22            0.89            0.59            0.98            0.77            0.37            0.50            0.51
+fix_place               0.00            0.00            0.00            0.61            0.98            0.72            0.26            0.52            0.52
+fix_rigid               1.96            2.27            2.69            0.68            0.99            0.87            0.32            0.61            0.55
+fix_limbs               3.17            4.30            2.93            0.73            0.99            0.82            0.29            0.65            0.57
+fix_rot                 3.17            4.30            2.93            0.61            0.98            0.79            0.19            0.59            0.53
+fix_center              2.04            2.43            2.69            0.65            0.99            0.84            0.43            0.61            0.58
+truth                   0.00            0.00            0.00            0.86            0.99            1.00            1.00            1.00            0.61
+
+=== pooled
+1068 views, 4 sequences; truth pairs and contact at 2 cm, predicted at 5 cm; F1 except distances (medians)
+variant          dist err cm    rel depth cm  rel lateral cm    region pairs      in contact torso->arm_loop   leg->leg_loop   arm->arm_loop    balance sign
+pred                    3.17            4.30            2.93            0.60            0.98            0.76            0.40            0.55            0.56
+fix_depth               1.02            0.22            2.82            0.62            0.98            0.77            0.31            0.56            0.51
+fix_lateral             3.12            4.22            0.89            0.59            0.98            0.77            0.37            0.50            0.51
+fix_place               0.00            0.00            0.00            0.61            0.98            0.72            0.26            0.52            0.52
+fix_rigid               1.96            2.27            2.69            0.68            0.99            0.87            0.32            0.61            0.55
+fix_limbs               3.17            4.30            2.93            0.73            0.99            0.82            0.29            0.65            0.57
+fix_rot                 3.17            4.30            2.93            0.61            0.98            0.79            0.19            0.59            0.53
+fix_center              2.04            2.43            2.69            0.65            0.99            0.84            0.43            0.61            0.58
+truth                   0.00            0.00            0.00            0.86            0.99            1.00            1.00            1.00            0.61
+

@@ -1,0 +1,21 @@
+1426 frames; relation rates on predicted bodies (margin >= 5 cm)
+
+position          n O.torso->D.le D.torso->O.le O.leg->D.leg_ D.leg->O.leg_    mutual_leg  any_leg_loop torso_leg_loo  any_arm_loop     duplicate
+standing         80          0.00          0.00          0.01          0.01          0.00          0.01          0.00          0.19          0.03
+takedown        157          0.00          0.01          0.10          0.10          0.03          0.17          0.01          0.30          0.08
+open_guard      160          0.00          0.00          0.08          0.09          0.04          0.14          0.00          0.07          0.03
+half_guard      149          0.01          0.02          0.13          0.19          0.09          0.23          0.03          0.30          0.36
+closed_guard    160          0.14          0.02          0.11          0.09          0.01          0.29          0.15          0.30          0.46
+5050_guard       80          0.05          0.05          0.30          0.30          0.04          0.33          0.05          0.17          0.11
+side_control    160          0.05          0.00          0.05          0.04          0.01          0.12          0.05          0.29          0.43
+mount           160          0.12          0.00          0.12          0.05          0.03          0.24          0.12          0.29          0.45
+back            160          0.34          0.03          0.22          0.15          0.06          0.50          0.37          0.42          0.26
+turtle          160          0.04          0.00          0.06          0.03          0.01          0.11          0.04          0.29          0.02
+
+pre-registered hypotheses:
+  FAIL  H1 mount O.torso->D.leg_loop >= 0.60; side control <= 0.20: mount 0.12 [0.08,0.14], side control 0.05 [0.03,0.06]
+  FAIL  H2 closed guard O.torso->D.leg_loop >= 0.60: 0.14 [0.07,0.30]
+  FAIL  H3 half guard O.leg->D.leg_loop >= 0.40 and > closed guard: half 0.13 [0.09,0.20] vs closed 0.11
+  FAIL  H4 50/50 highest mutual leg threading: half_guard 0.09, back 0.06, open_guard 0.04, 5050_guard 0.04
+  PASS  H5 standing/takedown/turtle/side control any leg-loop threading <= 0.20: standing 0.01, takedown 0.17, turtle 0.11, side_control 0.12
+  FAIL  H6 back torso through either leg loop >= 0.40: 0.37 [0.29,0.47]

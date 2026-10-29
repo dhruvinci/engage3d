@@ -1,0 +1,52 @@
+{
+ "blend": {
+  "config_err_cm": 8.85055419900774,
+  "rel_depth_cm": 7.074788112397945,
+  "rel_lateral_cm": 4.0747894546100145
+ },
+ "model": {
+  "config_err_cm": 7.508499475135755,
+  "rel_depth_cm": 5.705491052149236,
+  "rel_lateral_cm": 3.060818144306409
+ },
+ "n": 5364,
+ "n_train_views": 22640,
+ "width": 512,
+ "epochs": 60,
+ "wd": 0.001,
+ "drop": 0.2,
+ "seeds": 3,
+ "tokens": 0,
+ "mirror": true,
+ "train_cams": "all",
+ "eval_cams": "all",
+ "test": true,
+ "by_activity": {
+  "grappling": {
+   "n": 904,
+   "blend": {
+    "config_err_cm": 7.885206394494844,
+    "rel_depth_cm": 5.134072457632599,
+    "rel_lateral_cm": 4.24231433202429
+   },
+   "model": {
+    "config_err_cm": 6.449066145038969,
+    "rel_depth_cm": 4.339463736819926,
+    "rel_lateral_cm": 2.6350367581540945
+   }
+  },
+  "mma4": {
+   "n": 4460,
+   "blend": {
+    "config_err_cm": 9.098064139337247,
+    "rel_depth_cm": 7.535823402192543,
+    "rel_lateral_cm": 4.054922474955033
+   },
+   "model": {
+    "config_err_cm": 7.729085382769102,
+    "rel_depth_cm": 6.084636844608493,
+    "rel_lateral_cm": 3.1555247445342327
+   }
+  }
+ }
+}
