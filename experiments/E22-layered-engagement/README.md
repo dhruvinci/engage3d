@@ -42,6 +42,10 @@ intervals (short clips). MAMMA media and the videos without truth are not redist
 Files: `RESULTS.md`. Code: `src/engage_demo_layers.py` (all stages), `src/engage_clip.py` (any video as a clip, its
 lens and optional truth), `src/engage_clip_make.py` (cut clips; MAMMA truth), `src/engage_demo_render.py` (the
 six-panel video), `src/engage_demo_index.py` (gallery), `src/run_queue.sh` (the queue with gates).
+The tracking (`samtrack`) and narration-context (`context`) stages also import `autolabel_sam31_video`,
+`autolabel_densify` and `autolabel_astra` from [kakashi-autolabel](https://github.com/dhruvinci/kakashi-autolabel)
+(`src/`): put that folder on `PYTHONPATH`. `src/run_clip.sh` runs one clip through every stage; `src/run_queue.sh` reads
+a `queue.tsv` (one line per clip: name, sequence or clip folder, camera, frames, note).
 Credits: Harmony4D (Khirodkar et al., NeurIPS 2024; MIT); MAMMA (Max Planck Institute for Intelligent Systems);
 RF-DETR (Apache-2.0); SAM 3.1 and SAM 3D Body (Meta, SAM License); PMPose (BBoxMaskPose v2); MoGe-2 (MIT); GPT-6
 Astra (OpenAI).

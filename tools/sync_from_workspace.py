@@ -51,7 +51,8 @@ EXPERIMENTS = {   # repo folder: {file in the folder: workspace source}
     'E22-layered-engagement': {'RESULTS.md': R + 'layered_results.md'},
     'E17b-trust-flag-deeper': {'PREREG.md': R + 'trustb_prereg.md'},
 }
-EXTRA = {'benchmarks/engage_h4d/demo_layers/run_queue.sh': 'src/run_queue.sh'}   # workspace path: repo path
+EXTRA = {'benchmarks/engage_h4d/demo_layers/run_queue.sh': 'src/run_queue.sh',   # workspace path: repo path
+         'benchmarks/engage_h4d/demo_layers/run_clip.sh': 'src/run_clip.sh'}
 H, V = 'benchmarks/engage_h4d/', 'benchmarks/engage_vicos/'
 DATA = {   # repo folder: {file in its data/: workspace source}. Aggregate scores only: no per-item ViCoS or MAMMA data
     'E00-benchmark-baseline': {'harmony4d_summary.json': H + 's3d_box/score/summary.json',
