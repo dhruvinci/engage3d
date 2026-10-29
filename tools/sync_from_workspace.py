@@ -49,6 +49,7 @@ EXPERIMENTS = {   # repo folder: {file in the folder: workspace source}
     'E14-temporal-limbs': {'PREREG.md': R + 'temporal_prereg.md', 'RESULTS.md': R + 'temporal_results.md'},
     'E16-end-to-end-rfdetr': {'PREREG.md': R + 'rfdetr_prereg.md'},
     'E22-layered-engagement': {'RESULTS.md': R + 'layered_results.md'},
+    'E17b-trust-flag-deeper': {'PREREG.md': R + 'trustb_prereg.md'},
 }
 EXTRA = {'benchmarks/engage_h4d/demo_layers/run_queue.sh': 'src/run_queue.sh'}   # workspace path: repo path
 HARD = [r'[\w.+-]+@[\w-]+\.(com|org|net|ai|io|edu)\b', r'\bhf_[A-Za-z0-9]{20,}', r'\bgh[opsu]_[A-Za-z0-9]{20,}',

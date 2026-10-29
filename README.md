@@ -5,8 +5,8 @@ body surfaces meet, whose limbs wrap whom) as 3D quantities, from ordinary singl
 standing grappling and MMA (Harmony4D, multi-view 3D ground truth) and Brazilian jiu-jitsu ground work (ViCoS, expert
 position labels). The relations generalise to any close human interaction.
 
-Every experiment is **pre-registered**: its pass criteria are committed before it runs (see the commit history), and
-its results are reported against them, failures included. One folder per experiment: [`experiments/`](experiments/).
+Every experiment except the E22 demo is **pre-registered**: its pass criteria are committed before it runs (see the
+commit history), and its results are reported against them, failures included. One folder per experiment: [`experiments/`](experiments/).
 Findings log: [`FINDINGS.md`](FINDINGS.md). Plan: [`docs/RESEARCH_QUEUE.md`](docs/RESEARCH_QUEUE.md).
 
 ## Where it works, and where it doesn't yet
@@ -22,9 +22,13 @@ limbs in contact to 3.8 cm ([E20](experiments/E20-calmer-contact/)).
 
 **Grappling with limbs tangled: not yet.** Where the two bodies are is right (distance 3.2 cm), but limbs hidden at the
 contact are 4-6 cm off (red lines: measured joint -> true joint). Hugging fails the same way: the arms hide behind the
-partner. **This is where the work is now:** better 2D inside tangles ([E18](experiments/E18-oracle-clicks/),
-[E19](experiments/E19-contact-2d-keypoints/)), the body model's decoder ([E11](experiments/E11-decoder-finetune/)),
-information over time (E14) and a stronger keypoint model (E16).
+partner. **What has been tried for this:** the body model's own pose token ([E10](experiments/E10-limb-head/), fail),
+fine-tuning its decoder ([E11](experiments/E11-decoder-finetune/), fail), information over time
+([E14](experiments/E14-temporal-limbs/), fail: the errors persist across frames), and better 2D as clicks (true 2D
+helps -15% / -25%, [E18](experiments/E18-oracle-clicks/); a contact-trained keypoint model does not yet,
+[E19](experiments/E19-contact-2d-keypoints/)). **Now:** RF-DETR keypoints and person masks trained on contact, end to
+end with no ground-truth boxes ([E16](experiments/E16-end-to-end-rfdetr/), running), and a per-frame trust flag that
+says when a measurement can be used ([E17](experiments/E17-confidence/), [E17b](experiments/E17b-trust-flag-deeper/)).
 
 ![What we measure: loops (yellow) and the limbs or torsos threading them (magenta), from ground truth](docs/assets/truth_threading_examples.jpg)
 
@@ -62,7 +66,8 @@ blended with SAM 3D Body's own estimate of the depth gap between the two people)
   touching F1 0.96-1.00 on hugging, ballroom and grappling, 0.59-0.75 on strikes
   ([E22](experiments/E22-layered-engagement/)).
 - **Limits:**
-  - ground-truth person boxes were used;
+  - the tables above used ground-truth person boxes; E22 (no ground-truth boxes, whole clips) and E16 (running)
+    measure what real detection costs;
   - SAM 3D Body was trained on Harmony4D (all 24 subjects; [arXiv 2602.15989](https://arxiv.org/abs/2602.15989), Table 1),
     so its absolute errors on Harmony4D, including the MMA "new people", are likely optimistic; comparisons within an
     experiment are unaffected, and unseen data (MAMMA's motion-capture evaluation, real footage) is the honest test;
@@ -73,7 +78,8 @@ blended with SAM 3D Body's own estimate of the depth gap between the two people)
 ## Layout
 - `src/`: the code (flat modules; each script states its environment and usage in its docstring). Paths to data and
   models: `src/engage_paths.py` (environment variables `ENGAGE3D_*`).
-- `experiments/E<nn>-<name>/`: `PREREG.md` (committed before the run) and `RESULTS.md`.
+- `experiments/E<nn>-<name>/`: `README.md` (summary), `PREREG.md` (committed before the run) and `RESULTS.md`. E04's
+  results are in E03; E22, a demo, has no pre-registration.
 - `docs/`: measurement spec, capture design, research queue.
 - `env/`: pinned package lists of the five environments (`venv-<name>.txt`; Python 3.11-3.12, CUDA 12/13).
 - `tools/sync_from_workspace.py`: how this repo is exported from the private research workspace, with a privacy check.
@@ -87,8 +93,11 @@ blended with SAM 3D Body's own estimate of the depth gap between the two people)
   - MoGe-2 (`Ruicheng/moge-2-vitl-normal`) and Depth Pro (`apple/DepthPro`);
   - ViTPose+ (`usyd-community/vitpose-plus-base`);
   - PromptHMR (non-commercial research); SMPL / SMPL-X (their own licences).
-- Published artifacts (models, benchmarks) live on Hugging Face, one repo per experiment, gathered in the engage3D
-  collection (links in each experiment's README as they are released).
+- **MAMMA** (two-person motion capture, Max Planck Institute for Intelligent Systems, mamma.is.tue.mpg.de): used in E22
+  to score clips only. Its media and derived data are not redistributed.
+- **Published model:** the learned placement correction v1 (E06),
+  [`0xdhruva/engage3d-placement-v1`](https://huggingface.co/0xdhruva/engage3d-placement-v1), trained on Harmony4D
+  only. No model trained on MAMMA data or on private footage is released.
 
 ## Related research
 Earlier threads that led here, each with its own experiments and negative results: [movement-research](https://github.com/dhruvinci/movement-research) (camera and measurement under contact), [limb-entanglement](https://github.com/dhruvinci/limb-entanglement) (whose limb is whose), [fast-slow-vision](https://github.com/dhruvinci/fast-slow-vision), [kakashi-autolabel](https://github.com/dhruvinci/kakashi-autolabel). Index: [dhruvinci/research](https://github.com/dhruvinci/research).
