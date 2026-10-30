@@ -21,7 +21,7 @@ One folder per experiment. `PREREG.md` holds the question, method and pass crite
 | E13 | Geometry probe benchmark (VLMs vs vision encoders) | not run; folded into a later VLM project |
 | [E14](E14-temporal-limbs/) | Can time fill in limbs hidden at a contact? | **fail** (more frames add nothing) |
 | E15 | Hi4D and CHI3D (more interaction datasets) | dropped (2026-10-29): dataset access was not obtained (it requires an institutional registration) |
-| [E16](E16-end-to-end-rfdetr/) | End to end with no ground-truth boxes: RF-DETR keypoints and masks, then SAM 3D Body | running (pre-registered) |
+| [E16](E16-end-to-end-rfdetr/) | End to end with no ground-truth boxes: RF-DETR keypoints and masks, then SAM 3D Body | R5 **pass** (detection costs nothing where it finds the athletes); R1-R4, R6 **fail** (93% found; masks and RF-DETR clicks do not help hidden limbs) |
 | [E17](E17-confidence/) | Can the pipeline flag the frames where its measurement is wrong? | C1, C3, C4 **pass**; C2 **fails** narrowly (flag AUROC 0.76-0.80) |
 | [E17b](E17b-trust-flag-deeper/) | Making the trust flag usable: error bars, repair, clip summaries, the best camera | C1, C5 **pass** (the trusted camera of three halves the error); C2-C4 **fail** (bars too narrow on new people; repair and weighted summaries do not help) |
 | [E18](E18-oracle-clicks/) | Do true 2D keypoints fix tangled limbs in SAM 3D Body? | O1 **fail** (-15%, needed -25%); O4 **pass** (new people -25%) |

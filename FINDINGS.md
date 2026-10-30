@@ -96,3 +96,8 @@ One line per finding, newest last. Each links to the experiment that supports it
   new people (too narrow there). Repairing flagged frames from trusted neighbours makes them worse (4.14 -> 5.17 cm),
   and trust-weighted clip averages do not help. Pre-registered: C1 and C5 pass, C2-C4 fail.
   ([E17b](experiments/E17b-trust-flag-deeper/))
+- End to end with no ground-truth boxes: detected boxes cost nothing where the athletes are found (tangled limbs +0.6%,
+  interval -1.3 to +2.4%; new people -4%), but the detector finds 92.7% of athletes (76.9% on new people). A person
+  mask, even the true one, does not move hidden limbs on the held-out pair (-0.4%; -6% on new people), and RF-DETR's
+  contact-trained keypoints are 25 px off inside tangles (ViTPose+ 19 px) and make limbs 24% worse as clicks.
+  Pre-registered: R5 passes; R1-R4 and R6 fail. ([E16](experiments/E16-end-to-end-rfdetr/))

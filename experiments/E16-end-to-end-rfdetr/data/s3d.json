@@ -1,0 +1,148 @@
+{
+ "heldout": {
+  "views": 1068,
+  "seconds_per_view": 4.26,
+  "athletes_found": 0.9269662921348315,
+  "gtbox": {
+   "athletes": 2136,
+   "tangle_joint8_median_cm": 5.39361834526062,
+   "other_joint8_median_cm": 4.2380791157484055
+  },
+  "gtbox_truemask": {
+   "athletes": 2136,
+   "tangle_joint8_median_cm": 5.373998545110226,
+   "other_joint8_median_cm": 4.229830577969551
+  },
+  "detbox": {
+   "athletes": 1980,
+   "tangle_joint8_median_cm": 5.389846675097942,
+   "other_joint8_median_cm": 4.230714216828346
+  },
+  "detbox_mask": {
+   "athletes": 1980,
+   "tangle_joint8_median_cm": 5.4519690573215485,
+   "other_joint8_median_cm": 4.243282601237297
+  },
+  "detbox_mask_kp2": {
+   "athletes": 1980,
+   "tangle_joint8_median_cm": 6.784018129110336,
+   "other_joint8_median_cm": 4.693538881838322
+  },
+  "paired_athletes": 1980,
+  "paired": {
+   "gtbox": 5.356814526021481,
+   "gtbox_truemask": 5.3383719176054,
+   "detbox": 5.389846675097942,
+   "detbox_mask": 5.4519690573215485,
+   "detbox_mask_kp2": 6.784018129110336
+  },
+  "gtbox_truemask_vs_gtbox_tangle_95ci": [
+   -0.019641322458809608,
+   0.012732417808610036
+  ],
+  "detbox_vs_gtbox_tangle_95ci": [
+   -0.013328761427445733,
+   0.023839395624600457
+  ],
+  "detbox_mask_vs_gtbox_tangle_95ci": [
+   -0.004543193975837012,
+   0.036930218776693925
+  ],
+  "detbox_mask_kp2_vs_detbox_mask_tangle_95ci": [
+   0.20865063289502814,
+   0.28586582758153095
+  ],
+  "2d": {
+   "rfdetr_ft": {
+    "tangle_limb_median_px": 25.16132620486628,
+    "other_limb_median_px": 10.209643252942966
+   },
+   "rfdetr_released": {
+    "tangle_limb_median_px": 33.92681973356975,
+    "other_limb_median_px": 14.276221660039049
+   },
+   "vitpose_ft_gtbox": {
+    "tangle_limb_median_px": 19.18456183990959,
+    "other_limb_median_px": 8.995264165140982
+   },
+   "vitpose_released_gtbox": {
+    "tangle_limb_median_px": 23.783315053315253,
+    "other_limb_median_px": 13.910057915412835
+   },
+   "athletes_scored": 1713
+  }
+ },
+ "mma_new_people": {
+  "views": 742,
+  "seconds_per_view": 3.82,
+  "athletes_found": 0.7641509433962265,
+  "gtbox": {
+   "athletes": 1484,
+   "tangle_joint8_median_cm": 6.259263306856155,
+   "other_joint8_median_cm": 4.564213566482067
+  },
+  "gtbox_truemask": {
+   "athletes": 1484,
+   "tangle_joint8_median_cm": 5.748148076236248,
+   "other_joint8_median_cm": 4.516026750206947
+  },
+  "detbox": {
+   "athletes": 1134,
+   "tangle_joint8_median_cm": 5.8043405413627625,
+   "other_joint8_median_cm": 4.4727906584739685
+  },
+  "detbox_mask": {
+   "athletes": 1134,
+   "tangle_joint8_median_cm": 5.81975020468235,
+   "other_joint8_median_cm": 4.497997835278511
+  },
+  "detbox_mask_kp2": {
+   "athletes": 1134,
+   "tangle_joint8_median_cm": 6.891233846545219,
+   "other_joint8_median_cm": 4.738584533333778
+  },
+  "paired_athletes": 1134,
+  "paired": {
+   "gtbox": 6.067182682454586,
+   "gtbox_truemask": 5.676803179085255,
+   "detbox": 5.8043405413627625,
+   "detbox_mask": 5.81975020468235,
+   "detbox_mask_kp2": 6.891233846545219
+  },
+  "gtbox_truemask_vs_gtbox_tangle_95ci": [
+   -0.09807991081466173,
+   -0.03155802286038731
+  ],
+  "detbox_vs_gtbox_tangle_95ci": [
+   -0.06980769764114908,
+   -0.010477782804914812
+  ],
+  "detbox_mask_vs_gtbox_tangle_95ci": [
+   -0.07416404026762688,
+   -0.005442570695129415
+  ],
+  "detbox_mask_kp2_vs_detbox_mask_tangle_95ci": [
+   0.12376834103787449,
+   0.2323202948197966
+  ],
+  "2d": {
+   "rfdetr_ft": {
+    "tangle_limb_median_px": 19.122508464685176,
+    "other_limb_median_px": 10.758541543143128
+   },
+   "rfdetr_released": {
+    "tangle_limb_median_px": 24.818985940116775,
+    "other_limb_median_px": 15.956142767081108
+   },
+   "vitpose_ft_gtbox": {
+    "tangle_limb_median_px": 18.03205610072478,
+    "other_limb_median_px": 9.698080258520042
+   },
+   "vitpose_released_gtbox": {
+    "tangle_limb_median_px": 21.468378902941417,
+    "other_limb_median_px": 15.651851663938086
+   },
+   "athletes_scored": 789
+  }
+ }
+}

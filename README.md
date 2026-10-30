@@ -26,8 +26,10 @@ partner. **What has been tried for this:** the body model's own pose token ([E10
 fine-tuning its decoder ([E11](experiments/E11-decoder-finetune/), fail), information over time
 ([E14](experiments/E14-temporal-limbs/), fail: the errors persist across frames), and better 2D as clicks (true 2D
 helps -15% / -25%, [E18](experiments/E18-oracle-clicks/); a contact-trained keypoint model does not yet,
-[E19](experiments/E19-contact-2d-keypoints/)). **Now:** RF-DETR keypoints and person masks trained on contact, end to
-end with no ground-truth boxes ([E16](experiments/E16-end-to-end-rfdetr/), running), and a per-frame trust flag that
+[E19](experiments/E19-contact-2d-keypoints/)), and person masks and contact-trained RF-DETR keypoints end to end with
+no ground-truth boxes ([E16](experiments/E16-end-to-end-rfdetr/): detection costs nothing where it finds the athletes,
+but masks and its keypoints do not reach hidden limbs). What remains is decoder training at scale or a second view.
+**Usable now:** a per-frame trust flag that
 says when a measurement can be used ([E17](experiments/E17-confidence/); [E17b](experiments/E17b-trust-flag-deeper/):
 with three phones, taking each moment from the camera the flag trusts most halves the distance error).
 
@@ -67,8 +69,8 @@ blended with SAM 3D Body's own estimate of the depth gap between the two people)
   touching F1 0.96-1.00 on hugging, ballroom and grappling, 0.59-0.75 on strikes
   ([E22](experiments/E22-layered-engagement/)).
 - **Limits:**
-  - the tables above used ground-truth person boxes; E22 (no ground-truth boxes, whole clips) and E16 (running)
-    measure what real detection costs;
+  - the tables above used ground-truth person boxes; with real detection (E16) the limb error is the same where the
+    athletes are found, but the detector misses 7% of athletes (23% on new people);
   - SAM 3D Body was trained on Harmony4D (all 24 subjects; [arXiv 2602.15989](https://arxiv.org/abs/2602.15989), Table 1),
     so its absolute errors on Harmony4D, including the MMA "new people", are likely optimistic; comparisons within an
     experiment are unaffected, and unseen data (MAMMA's motion-capture evaluation, real footage) is the honest test;
