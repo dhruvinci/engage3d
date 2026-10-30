@@ -23,6 +23,7 @@ WS = Path.home()/'Code/kakashi-research/dataset'
 CODE = ['engage_*.py', 'engage_paths.py', 'tangle_h4d.py', 'autolabel_common.py', 'autolabel_body3d.py',
         'autolabel_pose2d.py']
 DOCS = {'docs/engagement/MEASUREMENT_SPEC.v0.md': 'docs/MEASUREMENT_SPEC.v0.md',
+        'docs/engagement/MEASUREMENT_SPEC.v1.md': 'docs/MEASUREMENT_SPEC.v1.md',
         'docs/engagement/CAPTURE_DESIGN.v0.md': 'docs/CAPTURE_DESIGN.v0.md',
         'docs/RESEARCH_QUEUE.md': 'docs/RESEARCH_QUEUE.md'}
 R = 'docs/engagement/results/'
@@ -50,6 +51,7 @@ EXPERIMENTS = {   # repo folder: {file in the folder: workspace source}
     'E16-end-to-end-rfdetr': {'PREREG.md': R + 'rfdetr_prereg.md', 'RESULTS.md': R + 'rfdetr_results.md', 'STAGE0.md': R + 'ceilings_results.md'},
     'E22-layered-engagement': {'RESULTS.md': R + 'layered_results.md'},
     'E17b-trust-flag-deeper': {'PREREG.md': R + 'trustb_prereg.md', 'RESULTS.md': R + 'trustb_results.md'},
+    'E23-engagement-measures': {'PREREG.md': R + 'measures_prereg.md'},
 }
 EXTRA = {'benchmarks/engage_h4d/demo_layers/run_queue.sh': 'src/run_queue.sh',   # workspace path: repo path
          'benchmarks/engage_h4d/demo_layers/run_clip.sh': 'src/run_clip.sh'}
