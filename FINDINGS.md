@@ -101,3 +101,10 @@ One line per finding, newest last. Each links to the experiment that supports it
   mask, even the true one, does not move hidden limbs on the held-out pair (-0.4%; -6% on new people), and RF-DETR's
   contact-trained keypoints are 25 px off inside tangles (ViTPose+ 19 px) and make limbs 24% worse as clicks.
   Pre-registered: R5 passes; R1-R4 and R6 fail. ([E16](experiments/E16-end-to-end-rfdetr/))
+
+## 2026-10-30
+- Engagement beyond contact, from one camera, against the truth (8 Harmony4D clips): the centre of mass is placed to
+  8.6 cm and the vector between the two people's centres to 6.5 cm; who is lower to 1.7 cm; whose hips are higher 100%
+  right; head inside 75% and wrists and knees inside 88% right in contact; lever arms at contact to 3.5 cm; closing
+  speed to 0.15 m/s. Balance is not yet measurable: whether a person is stable over their own base agrees only 63%, and
+  "supported by the partner" reaches F1 0.48. Pre-registered: 7 of 9 pass. ([E23](experiments/E23-engagement-measures/))

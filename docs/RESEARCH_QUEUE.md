@@ -6,7 +6,7 @@ committed before it runs, and published with its results.
 
 **Status, 2026-10-29.** E10-E14 and E17-E21 are done and published (see `experiments/README.md` for verdicts); E22 (a
 demo) is published; E16 and E17b are done; E13 is folded into a later VLM project; E15 is dropped
-(dataset access not obtained); E23 (engagement beyond contact) is drafted and awaits Dhruva's sign-off.
+(dataset access not obtained); E23 (engagement beyond contact) is done.
 
 ## 0. Setup (before any experiment)
 | # | Step | Needs |
@@ -33,7 +33,7 @@ demo) is published; E16 and E17b are done; E13 is folded into a later VLM projec
 | E20 | **Calmer contact: hugging, ballroom** (done: ballroom works, hugging hides limbs) | | | | | |
 | E21 | **Engagement at range: sword fighting** (done 2026-10-27: distance right to ~4% at 2.4 m; absolute bars fail; placement hurts depth at range) | | | | | |
 | E22 | **Layered engagement** (done 2026-10-28: a demo, not pre-registered; six layers on whole clips without ground-truth boxes) | | | | | |
-| E23 | **Engagement beyond contact** (spec v1 and pre-registration drafted 2026-10-28; awaiting Dhruva's sign-off on the definitions) | Centre of mass, base and stability, weight on the partner (proxy), leverage at contact, level and posture, head position, inside position, engagement over time: measurable from one camera? | E22's clips with truth | CPU | — | report |
+| E23 | **Engagement beyond contact** (done 2026-10-30: 7 of 9 pass; centre of mass, level, hips, head and limb inside position, lever arms and closing speed are measurable from one camera; balance (stable, supported by the partner) is not yet) | Centre of mass, base and stability, weight on the partner (proxy), leverage at contact, level and posture, head position, inside position, engagement over time: measurable from one camera? | E22's clips with truth | CPU | — | report |
 | L1 | **Full-library auto-label (v1.1)** (not engage3d: an optional dataset run, last; Dhruva 2026-10-26) | Label every downloaded video at a sparse density so the library has a complete index before the videos are deleted | the 940 downloaded YouTube videos | GPU ~35-50 h (no 12.5 fps masks) + ~1 week of Astra | labels ~1-2 GB | private dataset v1.1 (HF) |
 
 Not schedulable yet:

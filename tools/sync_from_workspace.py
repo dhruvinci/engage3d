@@ -51,7 +51,7 @@ EXPERIMENTS = {   # repo folder: {file in the folder: workspace source}
     'E16-end-to-end-rfdetr': {'PREREG.md': R + 'rfdetr_prereg.md', 'RESULTS.md': R + 'rfdetr_results.md', 'STAGE0.md': R + 'ceilings_results.md'},
     'E22-layered-engagement': {'RESULTS.md': R + 'layered_results.md'},
     'E17b-trust-flag-deeper': {'PREREG.md': R + 'trustb_prereg.md', 'RESULTS.md': R + 'trustb_results.md'},
-    'E23-engagement-measures': {'PREREG.md': R + 'measures_prereg.md'},
+    'E23-engagement-measures': {'PREREG.md': R + 'measures_prereg.md', 'RESULTS.md': R + 'measures_results.md'},
 }
 EXTRA = {'benchmarks/engage_h4d/demo_layers/run_queue.sh': 'src/run_queue.sh',   # workspace path: repo path
          'benchmarks/engage_h4d/demo_layers/run_clip.sh': 'src/run_clip.sh'}
@@ -96,6 +96,7 @@ DATA = {   # repo folder: {file in its data/: workspace source}. Aggregate score
                            ('place', 'place_120ep', 'score_s3d', 'score_place_model', 'score_place_blend', 'score_place_model_120ep', 'score_place_blend_120ep')},
     'E21-engagement-at-range': {f'{v}_summary.json': H + f'sword/{v}/summary.json' for v in ('place', 'score_s3d', 'score_place_model', 'score_place_blend')},
     'E17b-trust-flag-deeper': {'trust_b.json': H + 'trust_b/trust_b.json', 'run.log': H + 'trust_b/run.log'},
+    'E23-engagement-measures': {'score.json': H + 'measures_e23/score.json'},
     'E16-end-to-end-rfdetr': {'stage0_prompts.json': H + 'rfdetr/ceiling/ceiling.json', 'stage0_fit_dev.json': H + 'rfdetr/fit_ceiling/fit_ceiling.json',
                               'stage0_fit_noise.json': H + 'rfdetr/fit_ceiling/fit_noise.json', 'stage0_fit_mma.json': H + 'fit_ceiling_mma/fit_ceiling.json',
                               'stage0_fit_hugging_ballroom.json': H + 'fit_ceiling_l1/fit_ceiling.json',

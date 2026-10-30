@@ -68,6 +68,10 @@ blended with SAM 3D Body's own estimate of the depth gap between the two people)
   grappling and 17 ordinary videos. 0 identity switches; distance between the two 1.5-5.1 cm off on Harmony4D;
   touching F1 0.96-1.00 on hugging, ballroom and grappling, 0.59-0.75 on strikes
   ([E22](experiments/E22-layered-engagement/)).
+- **Beyond contact** ([E23](experiments/E23-engagement-measures/), pre-registered): from one camera, the centre of mass
+  is placed to 8.6 cm and the vector between the two people's centres to 6.5 cm, who is lower to 1.7 cm, whose hips are
+  higher 100% right, head and limb inside position 75-88% right in contact, and lever arms at contact to 3.5 cm.
+  Balance (stable over one's own base, leaning on the partner) is not yet measurable.
 - **Limits:**
   - the tables above used ground-truth person boxes; with real detection (E16) the limb error is the same where the
     athletes are found, but the detector misses 7% of athletes (23% on new people);

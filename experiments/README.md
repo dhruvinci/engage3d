@@ -29,6 +29,7 @@ One folder per experiment. `PREREG.md` holds the question, method and pass crite
 | [E20](E20-calmer-contact/) | Does it already work where contact is calmer (hugging, ballroom)? | **fail** as pre-registered; ballroom works, hugging hides limbs |
 | [E21](E21-engagement-at-range/) | Engagement at range: sword fighting | **fail** on absolute bars; distance right to about 4% at 2.4 m |
 | [E22](E22-layered-engagement/) | Six layers of understanding on whole clips, across a spectrum of engagement | demo, not pre-registered (0 identity switches; distance 1.5-5.1 cm on Harmony4D) |
+| [E23](E23-engagement-measures/) | Engagement beyond contact: centre of mass, balance, weight on the partner, leverage, level, head and inside position | 7 of 9 **pass**; balance (stable, supported by the partner) **fails** |
 
 Each folder's `data/` holds the experiment's aggregate outputs (score summaries and logs, as written by the scripts),
 copied from the research workspace by `tools/sync_from_workspace.py`; per-item ViCoS and MAMMA data are not included
